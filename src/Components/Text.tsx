@@ -5,12 +5,12 @@ const Text = (): JSX.Element => {
 
 
 
-
-
     
     return (
     <>
-    <button>text</button>
+    <input></input>
+    <button>post</button>
+    
     </>
     )
 }

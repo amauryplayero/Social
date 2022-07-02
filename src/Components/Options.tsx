@@ -29,7 +29,7 @@ const Options = (): JSX.Element => {
             currentActionDisplayed = 
             <>
             <Drawing />
-            <button id="menu"onClick={(event)=>handleOption(event)}>cancel</button>
+            <button id="menu" onClick={(event)=>handleOption(event)}>cancel</button>
             </>
             break;
 
@@ -37,18 +37,16 @@ const Options = (): JSX.Element => {
             currentActionDisplayed = 
             <>
             <Text />
-            <button id="menu"onClick={(event)=>handleOption(event)}>cancel</button>
+            <button id="menu" onClick={(event)=>handleOption(event)}>cancel</button>
             </>
-
             break;
 
         case "Image":
             currentActionDisplayed = 
             <>
             <Image />
-            <button id="menu"onClick={(event)=>handleOption(event)}>cancel</button>
+            <button id="menu" onClick={(event)=>handleOption(event)}>cancel</button>
             </>
-
             break;
 
     }
@@ -56,7 +54,7 @@ const Options = (): JSX.Element => {
 
     return (
     <>
-    <button></button>
+    {currentActionDisplayed}
     </>
     )
 }
