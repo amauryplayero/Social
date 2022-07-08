@@ -9,10 +9,6 @@ const BackgroundImages = (): JSX.Element => {
         {/* <img src="https://i.imgur.com/QbwLw8q.jpg" className="backgroundImage"></img> */}
     </div>
 
-   
-    
-
-
     </>
     )
 }

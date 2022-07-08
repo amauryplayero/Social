@@ -1,11 +1,25 @@
+import React from "react"
+import {useState} from 'react'
 
 
 
 const Image = (): JSX.Element => {
+    const [image, setImage] = useState()
+
+    const handleChange = (e:React.ChangeEvent<HTMLInputElement>):void=>{
+        console.log(e)
+        
+
+    }
+
+
     return (
     <>
-    <button>image</button>
-    <input type='file'></input>
+    <div>image</div>
+    <input type='file' onChange={(e)=>handleChange(e)}></input>
+    <button
+    //  onClick={}
+    >post</button>
     </>
     )
 }

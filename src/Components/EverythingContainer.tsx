@@ -19,11 +19,8 @@ const EverythingContainer = ():JSX.Element =>{
         <div id="EverythingContainer">
             Leave a message!
             <div id="iconsContainer">
- 
                 <Options />
-                
             </div>
-            
             <div id="commentsContainer">
 
             </div>
