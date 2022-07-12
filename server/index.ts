@@ -1,13 +1,15 @@
-import express, {Express} from 'express'
-import cors from 'cors'
-import path from 'path'
-const PORT:string | Number = process.env.PORT || 3003
+import express, { Express, Request, Response} from 'express';
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 const app: Express = express();
+const PORT = 8000;
 
-app.use(express.json({limit: '25mb'}))
-app.use(cors())
-app.use(express.static(path.resolve(__dirname, '../build')))
-
-
-app.listen(PORT, ()=>{console.log("listening on" + PORT)})
+app.get('/', (req: Request, res: Response) => {
+    res.send('Express + TypeScript Server');
+  });
+  
+  app.listen(PORT, () => {
+    console.log(`Server is running at https://localhost:${PORT}`);
+  });
