@@ -2,7 +2,7 @@ import S3 from 'aws-sdk/clients/s3'
 import dotenv from 'dotenv'
 
 dotenv.config({ path: '../.env' });
-// import {ID, SECRET, BUCKET_NAME, KEY} from 'dotenv'
+
 const ID = process.env.ID
 const SECRET = process.env.SECRET
 
@@ -16,7 +16,14 @@ const test = ():void =>{
     
 }
 
+const postTextToS3 = ():void =>{
+    console.log('postTextToS3 function fired')
+
+
+}
+
 export {
     test,
+    postTextToS3, 
 
 }
