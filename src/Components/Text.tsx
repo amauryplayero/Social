@@ -15,8 +15,10 @@ const Text = (): JSX.Element => {
         try{
            fetch('http://localhost:8000/postTextToS3', {
                method: 'POST',
-               body:{text//:inputText}}).then(res=>{
+               body:{text:inputText}}).then(res=>{
                console.log(res)
+               console.log(
+                   'haaai')
            })
         }
         catch(err){
