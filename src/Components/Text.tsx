@@ -13,7 +13,9 @@ const Text = (): JSX.Element => {
         e.preventDefault()
         console.log('hai')
         try{
-           fetch('http://localhost:8000/postTextToS3', {method: 'POST'}).then(res=>{
+           fetch('http://localhost:8000/postTextToS3', {
+               method: 'POST',
+               body:{text//:inputText}}).then(res=>{
                console.log(res)
            })
         }
