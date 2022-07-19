@@ -11,14 +11,11 @@ const Text = (): JSX.Element => {
 
     const handleSubmit = (e:React.FormEvent):void =>{
         e.preventDefault()
-        console.log('hai')
         try{
            fetch('http://localhost:8000/postTextToS3', {
                method: 'POST',
-               body:{text:inputText}}).then(res=>{
+               body:JSON.stringify({text:inputText})}).then(res=>{
                console.log(res)
-               console.log(
-                   'haaai')
            })
         }
         catch(err){
@@ -32,7 +29,7 @@ const Text = (): JSX.Element => {
     
     return (
     <>
-    <input onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
+    <input id="inputText" onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
     <form onSubmit={(e:React.FormEvent):void=>handleSubmit(e)}>
         <input type="submit" value="input"></input>
     </form>
