@@ -8,7 +8,7 @@ dotenv.config({ path: '../.env' });
 const ID = process.env.ID
 const SECRET = process.env.SECRET
 const BUCKET_NAME = process.env.BUCKET_NAME
-const KEY:string = process.env.KEY
+const KEY = process.env.KEY
 
 interface S3Parameters {
     Bucket: string,
@@ -29,16 +29,16 @@ const test = ():void =>{
 }
 
 const postTextToS3 = (req:Request, res:Response):void =>{
-    let params = {
-    Bucket: BUCKET_NAME,
-    Key: KEY,
-    }
-    s3.upload(params, function(err, data){
-        if(err) {
-            throw err
-            }
-        console.log(`file uploaded suzzessfully at ${data.Location}`)
-    })
+    // let params = {
+    // Bucket: BUCKET_NAME,
+    // Key: KEY,
+    // }
+    // s3.upload(params, function(err, data){
+    //     if(err) {
+    //         throw err
+    //         }
+    //     console.log(`file uploaded suzzessfully at ${data.Location}`)
+    // })
     res.status(200).send("Success!")
 }
 
@@ -46,9 +46,13 @@ const postImageToS3 = (req:Request, res:Response):void =>{
     let parameters = {
         Bucket: BUCKET_NAME,
         Key: KEY,
-        body: req.body
-
+        body: req.body.image
     }
+    console.log(req.body)
+    // s3.upload(parameters, function (err:Error, data:Object){
+
+    // })
+    res.status(200).send(`${req.body.image}`)
 
 }
 

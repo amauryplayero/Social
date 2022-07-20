@@ -36,15 +36,15 @@ let driver = new Builder()
 
 // })
 
-// describe('Text component capabilities',()=>{
-//   test('clicking text will give you a text input', async ()=>{
-//     await driver.get(link)
-//     await driver.findElement(By.id('Text')).click()
-//     await driver.findElement(By.id('inputText')).sendKeys('testing hehehe')
-//   })
+describe('Text component capabilities',()=>{
+  test('clicking text will give you a text input', async ()=>{
+    await driver.get(link)
+    await driver.findElement(By.id('Text')).click()
+    await driver.findElement(By.id('inputText')).sendKeys('testing hehehe')
+  })
 
-//   test('')
-// });
+  test('')
+});
 
 describe('Image component capabilities',()=>{
   it('opens image selector from your computer', async ()=>{
@@ -59,6 +59,7 @@ describe('Image component capabilities',()=>{
     let chooseFile = await driver.findElement(By.xpath('//input[@id="chooseFileButton"]'))
     await chooseFile.sendKeys('/Users/amaurylopez/Downloads/carbon (1).png')
     await driver.findElement(By.id('uploadImageButton')).click()
+
     await driver.sleep(5000)
 
     // expect(driver.findElement(By.id('chooseFileButton'))).toBeVisible()
