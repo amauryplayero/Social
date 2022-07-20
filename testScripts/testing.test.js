@@ -41,6 +41,19 @@ describe('Text component capabilities',()=>{
     await driver.get(link)
     await driver.findElement(By.id('Text')).click()
     await driver.findElement(By.id('inputText')).sendKeys('testing hehehe')
+    await driver.findElement(By.id('uploadImageButton')).click()
+    await console.log = jest.fn();
+   
+      const logSpy = jest.spyOn(console, 'log');
+      // call the function u tryna test to return the stupid console log message i think 
+      console.log('hello');
+    
+      expect(logSpy).toHaveBeenCalledWith('hello');
+  
+
+
+    await driver.
+
   })
 
   test('')

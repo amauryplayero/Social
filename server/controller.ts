@@ -29,16 +29,17 @@ const test = ():void =>{
 }
 
 const postTextToS3 = (req:Request, res:Response):void =>{
-    // let params = {
-    // Bucket: BUCKET_NAME,
-    // Key: KEY,
-    // }
-    // s3.upload(params, function(err, data){
-    //     if(err) {
-    //         throw err
-    //         }
-    //     console.log(`file uploaded suzzessfully at ${data.Location}`)
-    // })
+    let params = {
+    Bucket: BUCKET_NAME,
+    Key: KEY,
+    Body: req.body.text
+    }
+    s3.upload(params, function(err, data){
+        if(err) {
+            throw err
+            }
+        console.log(`file uploaded suzzessfully at ${data.Location}`)
+    })
     res.status(200).send("Success!")
 }
 
