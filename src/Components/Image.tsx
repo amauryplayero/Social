@@ -24,9 +24,13 @@ const Image: React.FC = () => {
     }
 
     const handleImagePost = async ():Promise<Boolean> =>{
+        
         try {
+            fetch('http://localhost:8000/postImageToS3', {
+                method: 'POST',
+                body: JSON.stringify({image:'olis for now'})}).then(res=>{ console.log(res) 
             
-
+            })
         }
         catch {
             return false
@@ -40,8 +44,8 @@ const Image: React.FC = () => {
     return (
     <>
     <div>image</div>
-    <input type='file' onChange={(e)=>handleChange(e)}></input>
-    <button
+    <input type='file' id="chooseFileButton" onChange={(e)=>handleChange(e)}></input>
+    <button id="uploadImageButton"
      onClick={()=>handleImagePost()}
     >post</button>
     <img src={image}></img>

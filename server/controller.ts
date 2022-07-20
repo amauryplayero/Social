@@ -1,5 +1,6 @@
 import S3 from 'aws-sdk/clients/s3'
 import dotenv from 'dotenv'
+import express, {Request, Response} from 'express';
 
 dotenv.config({ path: '../.env' });
 
@@ -28,10 +29,9 @@ const test = ():void =>{
 }
 
 const postTextToS3 = (req:Request, res:Response):void =>{
-    let params: S3Parameters = {
+    let params = {
     Bucket: BUCKET_NAME,
     Key: KEY,
-    Body: req.body.text
     }
     s3.upload(params, function(err, data){
         if(err) {
@@ -39,15 +39,24 @@ const postTextToS3 = (req:Request, res:Response):void =>{
             }
         console.log(`file uploaded suzzessfully at ${data.Location}`)
     })
-    res.status(200).send("Success!").catch(
-        err=> res.status(400).send(err)
-    )
+    res.status(200).send("Success!")
+}
 
+const postImageToS3 = (req:Request, res:Response):void =>{
+    let parameters = {
+        Bucket: BUCKET_NAME,
+        Key: KEY,
+        body: req.body
+
+    }
 
 }
+
+
 
 export {
     test,
     postTextToS3, 
+    postImageToS3
 
 }

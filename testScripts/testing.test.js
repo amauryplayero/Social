@@ -28,21 +28,49 @@ let driver = new Builder()
 .build()
 
 
-describe('can open website', ()=>{
+// describe('can open website', ()=>{
 
-  test('opens browser and goes to localhost', async ()=>{
-    driver.get(link)
-  })
+//   test('opens browser and goes to localhost', async ()=>{
+//     driver.get(link)
+//   })
 
-})
+// })
 
-describe('each functionality component has clicking abilities',()=>{
-  test('clicking text will give you a text input', async ()=>{
+// describe('Text component capabilities',()=>{
+//   test('clicking text will give you a text input', async ()=>{
+//     await driver.get(link)
+//     await driver.findElement(By.id('Text')).click()
+//     await driver.findElement(By.id('inputText')).sendKeys('testing hehehe')
+//   })
+
+//   test('')
+// });
+
+describe('Image component capabilities',()=>{
+  it('opens image selector from your computer', async ()=>{
     await driver.get(link)
-    await driver.findElement(By.id('Text')).click()
-    await driver.findElement(By.id('inputText')).sendKeys('testing hehehe')
+    await driver.findElement(By.id('Image')).click()
+    await expect(driver.findElement(By.id('chooseFileButton'))).toBeVisible
   })
-})
+
+  it('uploads successfully to the S3 cloud', async()=>{
+    await driver.get(link)
+    await driver.findElement(By.id('Image')).click()
+    let chooseFile = await driver.findElement(By.xpath('//input[@id="chooseFileButton"]'))
+    await chooseFile.sendKeys('/Users/amaurylopez/Downloads/carbon (1).png')
+    await driver.findElement(By.id('uploadImageButton')).click()
+    await driver.sleep(5000)
+
+    // expect(driver.findElement(By.id('chooseFileButton'))).toBeVisible()
+    
+
+
+
+
+  })
+});
+
+
 
 // describe('executing test scenario on the website www.selenium.dev', ()=>{
 //   let tweet = 'aaaaaa'
