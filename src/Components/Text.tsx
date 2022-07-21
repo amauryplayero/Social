@@ -13,11 +13,12 @@ const Text = (): JSX.Element => {
         e.preventDefault()
         try{
            fetch('http://localhost:8000/postTextToS3', {
-               method: 'POST',
-               headers: {'Content-Type': 'application/json'},
-               body:JSON.stringify({text:inputText})}).then(res=>{
-               console.log(res)
-           })
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/json'},
+                    body:JSON.stringify({text:inputText})
+                    }
+                ).then(res=>{ console.log(res)}
+            )
         }
         catch(err){
 
@@ -37,6 +38,7 @@ const Text = (): JSX.Element => {
     
     </>
     )
+    
 }
 
 export default Text

@@ -1,5 +1,6 @@
 const {Builder, Capabilities, By} = require('selenium-webdriver')
-
+const {handleSubmit} = require('../src/Components/Text')
+const {} = require('enzyme')
 const script = require('jest')
 
 // const url = 'https://www.selenium.dev'
@@ -42,16 +43,12 @@ describe('Text component capabilities',()=>{
     await driver.findElement(By.id('Text')).click()
     await driver.findElement(By.id('inputText')).sendKeys('testing hehehe')
     await driver.findElement(By.id('uploadImageButton')).click()
-    await console.log = jest.fn();
    
-      const logSpy = jest.spyOn(console, 'log');
+   
+      const logSpy = jest.spyOn(handleSubmit, 'log');
       // call the function u tryna test to return the stupid console log message i think 
       console.log('hello');
-    
       expect(logSpy).toHaveBeenCalledWith('hello');
-  
-
-
     await driver.
 
   })
@@ -72,8 +69,9 @@ describe('Image component capabilities',()=>{
     let chooseFile = await driver.findElement(By.xpath('//input[@id="chooseFileButton"]'))
     await chooseFile.sendKeys('/Users/amaurylopez/Downloads/carbon (1).png')
     await driver.findElement(By.id('uploadImageButton')).click()
-
     await driver.sleep(5000)
+    
+
 
     // expect(driver.findElement(By.id('chooseFileButton'))).toBeVisible()
     
