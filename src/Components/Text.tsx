@@ -33,7 +33,7 @@ const Text = (): JSX.Element => {
     <>
     <input id="inputText" onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
     <form onSubmit={(e:React.FormEvent):void=>handleSubmit(e)}>
-        <input type="submit" value="input"></input>
+        <input type="submit" value="post"></input>
     </form>
     
     </>

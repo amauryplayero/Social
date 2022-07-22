@@ -39,17 +39,14 @@ let driver = new Builder()
 
 describe('Text component capabilities',()=>{
   test('clicking text will give you a text input', async ()=>{
+    const writtenText = "testing text hehehe hai"
     await driver.get(link)
     await driver.findElement(By.id('Text')).click()
     await driver.findElement(By.id('inputText')).sendKeys('testing hehehe')
-    await driver.findElement(By.id('uploadImageButton')).click()
-   
-   
-      const logSpy = jest.spyOn(handleSubmit, 'log');
-      // call the function u tryna test to return the stupid console log message i think 
-      console.log('hello');
-      expect(logSpy).toHaveBeenCalledWith('hello');
-    await driver.
+    await driver.findElement(By.id('uploadTextButton')).click()
+    await driver.findElement(By.id('message')).
+    let messagesUploaded = await driver.findElement(By.id('message'))
+    expect(messagesUploaded).toContain(writtenText)
 
   })
 
@@ -70,14 +67,10 @@ describe('Image component capabilities',()=>{
     await chooseFile.sendKeys('/Users/amaurylopez/Downloads/carbon (1).png')
     await driver.findElement(By.id('uploadImageButton')).click()
     await driver.sleep(5000)
-    
+
 
 
     // expect(driver.findElement(By.id('chooseFileButton'))).toBeVisible()
-    
-
-
-
 
   })
 });
