@@ -5,11 +5,16 @@ import {Request, Response} from 'express';
 
 dotenv.config();
 
+interface DatabaseType {
+    DATABASE_URL?:string
+}
+
 const ID = process.env.ID
 const SECRET = process.env.SECRET
 const BUCKET_NAME = process.env.BUCKET_NAME
 const KEY = process.env.KEY
-const DATABASE_URL = process.env.DATABASE_URL
+const DATABASE_URL:string= process.env.DATABASE_URL!
+
 
 const sequelize = new Sequelize(DATABASE_URL,{
     dialect: 'postgres', 
@@ -39,16 +44,24 @@ const test = ():void =>{
     
 }
 
-const postTextToS3 = (req:Request, res:Response):void =>{
-    const text = req.body.text
-
+const getAllPosts = (req:Request, res:Response):void =>{
     sequelize.query(`
-    INSERT INTO Posts (text_content) 
-    VALUES (
-        '${text}'
-    );
+    SELECT * FROM Posts 
+    `).then(dbRes => {res.status(200).send(dbRes[0])})
+}
 
-    `)
+const postText = (req:Request, res:Response):void =>{
+    const name:string = req.body.name
+    const textContent:string = req.body.text
+    console.log(name,textContent)
+    sequelize.query(`
+    INSERT INTO Posts (name, date, text_content) 
+    VALUES (
+        '${name}',
+        current_timestamp,
+        '${textContent}'
+    );
+    `).then(dbRes => res.status(200).send(dbRes[0]))
     
 
 }
@@ -70,7 +83,8 @@ const postImageToS3 = (req:Request, res:Response):void =>{
 
 export {
     test,
-    postTextToS3, 
-    postImageToS3
+    postText, 
+    postImageToS3,
+    getAllPosts
 
 }

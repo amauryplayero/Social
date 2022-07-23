@@ -1,7 +1,7 @@
 import express, { Express, Request, Response} from 'express';
 import dotenv from 'dotenv'
 import path from 'path'
-import {test, postTextToS3, postImageToS3} from './controller'
+import {test, postText, postImageToS3, getAllPosts} from './controller'
 import cors from 'cors'
 
 dotenv.config({ path: '../.env' });
@@ -21,8 +21,9 @@ app.get('/', (req: Request, res: Response) => {
     res.send('Express + TypeScript Server');
   });
 
-app.post('/postTextToS3', postTextToS3)
+app.post('/postText', postText)
 app.post('/postImageToS3', postImageToS3)
+app.get('/getAllPosts', getAllPosts)
 
 
 

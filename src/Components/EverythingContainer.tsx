@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import {useState} from 'react'
 import Drawing from './Drawing'
 import Options from './Options'
 
+
 const EverythingContainer = ():JSX.Element =>{
+    let posts 
+   
+    
+
+   
+        fetch("http://localhost:8000/getAllPosts",{
+                    method: 'GET',
+                }).then(res=>{console.log(res)})
+    
+
 
    
 
@@ -22,6 +33,7 @@ const EverythingContainer = ():JSX.Element =>{
                 <Options />
             </div>
             <div id="commentsContainer">
+
 
             </div>
 
