@@ -1,19 +1,29 @@
 import S3 from 'aws-sdk/clients/s3'
 import dotenv from 'dotenv'
+import { Sequelize } from 'sequelize'
 import {Request, Response} from 'express';
 
-dotenv.config({ path: '../.env' });
-
+dotenv.config();
 
 const ID = process.env.ID
 const SECRET = process.env.SECRET
 const BUCKET_NAME = process.env.BUCKET_NAME
 const KEY = process.env.KEY
+const DATABASE_URL = process.env.DATABASE_URL
+
+const sequelize = new Sequelize(DATABASE_URL,{
+    dialect: 'postgres', 
+    dialectOptions: {
+        ssl: {   
+            rejectUnauthorized: false
+        }
+    }
+})
 
 interface S3Parameters {
     Bucket?: string ,
     Key?: string ,
-    Body?: string 
+    Body?: string,
 }
 
 const s3 = new S3({
@@ -30,22 +40,17 @@ const test = ():void =>{
 }
 
 const postTextToS3 = (req:Request, res:Response):void =>{
-    let requestBody:string = req.body.text
-    
-    let parameters:S3Parameters = {
-    Bucket: BUCKET_NAME,
-    Key: KEY,
-    Body: requestBody
-    };
+    const text = req.body.text
 
-   s3.upload(parameters, function(err, data){
-        if(err) {
-            throw err
-        } else{
-        console.log(`file uploaded suzzessfully at ${data.Location}`)
-        res.status(200).send("Success!")
-        }
-    })
+    sequelize.query(`
+    INSERT INTO Posts (text_content) 
+    VALUES (
+        '${text}'
+    );
+
+    `)
+    
+
 }
 
 const postImageToS3 = (req:Request, res:Response):void =>{
