@@ -47,7 +47,7 @@ const test = ():void =>{
 const getAllPosts = (req:Request, res:Response):void =>{
     sequelize.query(`
     SELECT * FROM Posts 
-    `).then(dbRes => {res.status(200).send(dbRes[0])})
+    `).then(dbRes => {res.status(200).send(dbRes[0]);console.log(dbRes[0])})
 }
 
 const postText = (req:Request, res:Response):void =>{

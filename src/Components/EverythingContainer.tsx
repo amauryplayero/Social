@@ -5,16 +5,23 @@ import Options from './Options'
 
 
 const EverythingContainer = ():JSX.Element =>{
-    let posts 
+    const [posts, setPosts] = useState<String[]>([])
+    // let posts:string[] = []
    
     
 
-   
-        fetch("http://localhost:8000/getAllPosts",{
-                    method: 'GET',
-                }).then(res=>{console.log(res)})
-    
+   useEffect(()=>{
+    fetch("http://localhost:8000/getAllPosts",{
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+    }).then(res=>{return res.json()})
+    .then(data=>{setPosts(data)})
 
+   },[])
+     
+    console.log('it fired')
+    
+       
 
    
 
