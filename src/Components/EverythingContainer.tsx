@@ -15,7 +15,9 @@ const EverythingContainer = ():JSX.Element =>{
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
     }).then(res=>{return res.json()})
-    .then(data=>{setPosts(data)})
+    .then(data=>{
+        // setPosts(data)
+    console.log(data)})
 
    },[])
      

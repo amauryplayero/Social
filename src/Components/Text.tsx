@@ -4,6 +4,7 @@ import axios from 'axios'
 const Text = (): JSX.Element => {
     const [inputText, setInputText] = useState<String>("")
     const [name, setName] = useState<String>("")
+    const [input, setInput] = useState<{}>({input:'',name:""})
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>):void =>{
         if(e.target.id === 'inputText'){
@@ -37,9 +38,9 @@ const Text = (): JSX.Element => {
     
     return (
     <>
+    <form onSubmit={(e:React.FormEvent):void=>handleSubmit(e)}>
     <input id="inputText" placeholder='write your message' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
     <input id='name' placeholder='name' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
-    <form onSubmit={(e:React.FormEvent):void=>handleSubmit(e)}>
         <input type="submit" value="post"></input>
     </form>
     
