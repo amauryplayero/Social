@@ -41,7 +41,7 @@ const Text = (): JSX.Element => {
     <form onSubmit={(e:React.FormEvent):void=>handleSubmit(e)}>
     <input id="inputText" placeholder='write your message' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
     <input id='name' placeholder='name' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
-        <input type="submit" value="post"></input>
+        <input type="submit" value="post" id="uploadTextButton"></input>
     </form>
     
     </>

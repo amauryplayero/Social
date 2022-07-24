@@ -1,11 +1,16 @@
-import React, { useEffect } from 'react'
+import React, { ReactNode, useEffect } from 'react'
 import {useState} from 'react'
 import Drawing from './Drawing'
 import Options from './Options'
 
 
 const EverythingContainer = ():JSX.Element =>{
-    const [posts, setPosts] = useState<String[]>([])
+    interface Data{
+        name:string,
+        text_content:string
+     }
+
+    const [posts, setPosts] = useState<Data[]>([])
     // let posts:string[] = []
    
     
@@ -16,23 +21,30 @@ const EverythingContainer = ():JSX.Element =>{
         headers: {'Content-Type': 'application/json'}
     }).then(res=>{return res.json()})
     .then(data=>{
-        // setPosts(data)
-    console.log(data)})
-
-   },[])
+        setPosts(data)
+    })
+    },[])
      
-    console.log('it fired')
-    
+
+ 
+
+
+
+
+    let mapPosts:JSX.Element[] = posts.map((e,i)=>{
+        return(
+        <>
+        <div key={i}>
+        <p>{e.name}</p>
+        <p id="message">{e.text_content}</p>
        
-
-   
-
+        </div>
+        
+        </>
+        )
+        
+    })
     
-    
-
-  
-
-
 
     return(
         <>
@@ -42,6 +54,7 @@ const EverythingContainer = ():JSX.Element =>{
                 <Options />
             </div>
             <div id="commentsContainer">
+                {mapPosts}
 
 
             </div>

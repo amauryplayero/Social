@@ -1,5 +1,5 @@
 const {Builder, Capabilities, By} = require('selenium-webdriver')
-const {handleSubmit} = require('../src/Components/Text')
+// const {handleSubmit} = require('../src/Components/Text')
 const {} = require('enzyme')
 const script = require('jest')
 
@@ -42,38 +42,38 @@ describe('Text component capabilities',()=>{
     const writtenText = "testing text hehehe hai"
     await driver.get(link)
     await driver.findElement(By.id('Text')).click()
-    await driver.findElement(By.id('inputText')).sendKeys('testing hehehe')
+    await driver.findElement(By.id('inputText')).sendKeys(writtenText)
     await driver.findElement(By.id('uploadTextButton')).click()
-    await driver.findElement(By.id('message')).
-    let messagesUploaded = await driver.findElement(By.id('message'))
-    expect(messagesUploaded).toContain(writtenText)
+    await driver.findElement(By.id('message'))
+    let messagesUploaded = await driver.findElement(By.id('message'));
+    expect(messagesUploaded).toEqual(writtenText)
 
   })
 
-  test('')
+  // test('')
 });
 
-describe('Image component capabilities',()=>{
-  it('opens image selector from your computer', async ()=>{
-    await driver.get(link)
-    await driver.findElement(By.id('Image')).click()
-    await expect(driver.findElement(By.id('chooseFileButton'))).toBeVisible
-  })
+// describe('Image component capabilities',()=>{
+//   it('opens image selector from your computer', async ()=>{
+//     await driver.get(link)
+//     await driver.findElement(By.id('Image')).click()
+//     await expect(driver.findElement(By.id('chooseFileButton'))).toBeVisible
+//   })
 
-  it('uploads successfully to the S3 cloud', async()=>{
-    await driver.get(link)
-    await driver.findElement(By.id('Image')).click()
-    let chooseFile = await driver.findElement(By.xpath('//input[@id="chooseFileButton"]'))
-    await chooseFile.sendKeys('/Users/amaurylopez/Downloads/carbon (1).png')
-    await driver.findElement(By.id('uploadImageButton')).click()
-    await driver.sleep(5000)
+//   it('uploads successfully to the S3 cloud', async()=>{
+//     await driver.get(link)
+//     await driver.findElement(By.id('Image')).click()
+//     let chooseFile = await driver.findElement(By.xpath('//input[@id="chooseFileButton"]'))
+//     await chooseFile.sendKeys('/Users/amaurylopez/Downloads/carbon (1).png')
+//     await driver.findElement(By.id('uploadImageButton')).click()
+//     await driver.sleep(5000)
 
 
 
-    // expect(driver.findElement(By.id('chooseFileButton'))).toBeVisible()
+//     // expect(driver.findElement(By.id('chooseFileButton'))).toBeVisible()
 
-  })
-});
+//   })
+// });
 
 
 
