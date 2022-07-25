@@ -9,12 +9,16 @@ function App() {
   return (
     <>
     <div id="backgroundImagesInAppContainer">
-    <BackgroundImages />
-    
+      <BackgroundImages />
     </div>
-      <div id="EverythingContainerInAppContainer">
-      <EverythingContainer />
-      </div>
+
+
+    <div id="EverythingContainerInAppContainer">
+    <div id="profilePictureContainer">
+      <img id="profilePicture"src="https://i.imgur.com/hkFklNQ.jpg"></img>
+    </div>
+        <EverythingContainer />
+    </div>
 
     </>
   );

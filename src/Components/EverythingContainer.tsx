@@ -21,10 +21,11 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
         fetch("http://localhost:8000/getAllPosts",{
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
-    }).then(res=>{return res.json()})
-    .then(data=>{
-        setPosts(data)
-    })
+        })
+        .then(res=>{return res.json()})
+        .then(data=>{
+            setPosts(data)
+        })
 
     }
     
@@ -65,8 +66,6 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
             </div>
             <div id="commentsContainer">
                 {mapPosts}
-
-
             </div>
 
         </div>

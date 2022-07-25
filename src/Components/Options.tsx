@@ -2,11 +2,14 @@ import {useState} from 'react'
 import Drawing from './Drawing'
 import Text from './Text'
 import Image from './Image'
+import { State } from 'aws-sdk/clients/directconnect'
 
 
 interface Iprop {
-    getAllPostsApiCall?:Function
+    getAllPostsApiCall?:Function,
 }
+
+
 
 const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
 
@@ -22,13 +25,19 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
         console.log(chosenOption.id)
     }
 
+    const cancelButtonHandler = ():void =>{
+        setOption("menu")
+    }
+
+    const cancelButton:JSX.Element = <button id="menu" onClick={(event)=>handleOption(event)}>cancel</button>
+
     switch ( option ) {
         case "menu":
             currentActionDisplayed = 
             <>
-            <button id="Drawing" onClick={(event)=>handleOption(event)}>drawing</button>
-            <button id="Text" onClick={(event)=>handleOption(event)}>text</button>
-            <button id="Image" onClick={(event)=>handleOption(event)}>image</button>
+            <button className="actionButton" id="Drawing" onClick={(event)=>handleOption(event)}>drawing</button>
+            <button className="actionButton" id="Text" onClick={(event)=>handleOption(event)}>text</button>
+            <button className="actionButton" id="Image" onClick={(event)=>handleOption(event)}>image</button>
             </>
             break;
 
@@ -36,15 +45,19 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
             currentActionDisplayed = 
             <>
             <Drawing />
-            <button id="menu" onClick={(event)=>handleOption(event)}>cancel</button>
+            {cancelButton}
             </>
             break;
 
         case "Text":
             currentActionDisplayed = 
             <>
-            <Text getAllPostsApiCall={props.getAllPostsApiCall}/>
-            <button id="menu" onClick={(event)=>handleOption(event)}>cancel</button>
+            <div id="textOptionsContainer">
+            <Text getAllPostsApiCall={props.getAllPostsApiCall}
+                  cancelButtonHandler={cancelButtonHandler}/>
+            {/* {cancelButton} */}
+            </div>
+           
             </>
             break;
 
@@ -52,7 +65,7 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
             currentActionDisplayed = 
             <>
             <Image />
-            <button id="menu" onClick={(event)=>handleOption(event)}>cancel</button>
+            {cancelButton}
             </>
             break;
 
@@ -62,6 +75,7 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
     return (
     <>
     {currentActionDisplayed}
+    
     </>
     )
 }

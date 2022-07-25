@@ -10,11 +10,28 @@ body{
 
 }
 
+#profilePictureContainer{
+  /* border: red solid; */
+  display: flex;
+  justify-content: center;
+  position:relative;
+  top:60px;
+
+}
+
+#profilePicture{
+  width: 120px;
+  border-radius: 100%;
+  border: 6px rgb(255, 255, 255) solid;
+}
+
 #EverythingContainerInAppContainer{
   position:absolute;
-  top: 150px;
+  top: 30px;
+  
   /* width: 40px; */
   width: 100vw;
+  /* border: red solid; */
   
   
   
@@ -38,36 +55,101 @@ max-height: 100%;
   background-color: rgb(255, 255, 255);
   height: 200vh;
   border-radius: 60px;
+  padding-top: 60px;
   display: flex;
  align-items: center;
   flex-direction: column;
 }
 
 #iconsContainer{
-  border: 4px rgb(211, 211, 211) solid;
+  border: 3px rgb(225, 225, 225) solid;
+  padding: 10px;
   border-radius: 15px;
-  height: 100px;
+  height: 140px;
   width: 85%;
   position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
   /* top: 60px; */
 }
 
+.actionButton{
+  border: rgb(113, 113, 113) solid;
+  width: 80px;
+  height: 80px;
+  border-radius: 20px;
+}
+
 #commentsContainer{
-  border: red solid;
+  /* border: rgb(216, 216, 216) solid; */
+  border-radius: 10px;
   height: 100vh;
-  width: 80%;
+  padding-top: 20px;
+  margin-top: 20px;;
+  width: 85%;
 }
 
 .postContainer{
   border: grey solid;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
 }
 
 .name{
   font-size: 15px;
   margin: 0 0 0 0;
 }
+
+#nameInput{
+  height: 26px;
+  border:2px rgb(233, 233, 233) solid;
+  border-radius: 12px;
+  margin-bottom: 10px;
+  width: 100px;
+  padding-left:5px;
+ 
+}
+
 .message{
  font-size: 30px;
  margin: 0 0 0 0;
  font-weight: bold;
 }
+
+#nameInputContainer{
+  /* border: red solid; */
+  width: 100%;
+}
+
+#inputTextContainer{
+  width: 100%;
+}
+
+#inputText{
+  /* border: red solid; */
+  border:2px rgb(233, 233, 233) solid;
+  border-radius: 12px;
+  width: 90%;
+  height: 50px;
+  margin-bottom: 10px;
+  padding-left: 5px;
+
+}
+
+#cancelAndPostButtonsContainer{
+  display: flex;
+justify-content: space-evenly;
+ 
+}
+
+#formContainer{
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  height: 100%;
+  /* align-items: center; */
+
+}
+

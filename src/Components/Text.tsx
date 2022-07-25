@@ -3,14 +3,19 @@ import axios from 'axios'
 
 
 interface Iprop {
-    getAllPostsApiCall?:Function
+    getAllPostsApiCall?:Function,
+    cancelButtonHandler?:Function
+    
 }
+
+// interface IpropInOptions {
+// }
 
 const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
     const [inputText, setInputText] = useState<String>("")
     const [name, setName] = useState<String>("")
     const [input, setInput] = useState<{}>({input:'',name:""})
-    const [postState, setPostState] = useState<string>("")
+    const [postState, setPostState] = useState<string>("editing")
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>):void =>{
         if(e.target.id === 'inputText'){
@@ -40,17 +45,18 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
     }
 
     if (postState === "posted") {
-        // refresh get api call for everything container
-        // getAllPostsApiCall()
         props.getAllPostsApiCall?.()
         return(
         <>
         <div>
             "congrats!"
         </div>
-        <button>
-            send anotherone
+        
+        <button onClick={()=>{setPostState("editing");setInputText("");setName("")}}>
+            post another message
         </button>
+
+        
 
         </>)
     }
@@ -60,10 +66,20 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
     
     return (
     <>
-    <form onSubmit={(e:React.FormEvent):void=>handleSubmit(e)}>
-    <input id="inputText" placeholder='write your message' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
-    <input id='name' placeholder='name' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
-        <input type="submit" value="post" id="uploadTextButton"></input>
+    <form id="formContainer" onSubmit={(e:React.FormEvent):void=>handleSubmit(e)}>
+        <div id="nameInputContainer">
+            <input id='nameInput' placeholder='name' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
+        </div>
+  
+        <div id="inputTextContainer">
+            <input id="inputText" placeholder='write your message' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
+        </div>
+
+        <div id="cancelAndPostButtonsContainer">
+            <input type="submit" value="post" id="uploadTextButton"></input>
+            <button onClick={()=>props.cancelButtonHandler?.()}>cancel</button>
+        </div>
+
     </form>
     
     </>
