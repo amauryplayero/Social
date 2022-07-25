@@ -40,13 +40,18 @@ let driver = new Builder()
 describe('Text component capabilities',()=>{
   test('clicking text will give you a text input', async ()=>{
     const writtenText = "testing text hehehe hai"
+    const name = "Test Robot Jones"
     await driver.get(link)
     await driver.findElement(By.id('Text')).click()
     await driver.findElement(By.id('inputText')).sendKeys(writtenText)
+    await driver.findElement(By.id('name')).sendKeys(name)
     await driver.findElement(By.id('uploadTextButton')).click()
-    await driver.findElement(By.id('message'))
-    let messagesUploaded = await driver.findElement(By.id('message'));
-    expect(messagesUploaded).toEqual(writtenText)
+    // await driver.sleep(4000)
+    let messagesUploaded = await driver.findElement(By.xpath(""));
+    expect(messagesUploaded).toContain
+    // let individualMessage = messagesUploaded[1].findElement(By.xpath("//p[@class='message']"));
+    console.log(messagesUploaded)
+    // expect(messagesUploaded).toContain(writtenText)
 
   })
 

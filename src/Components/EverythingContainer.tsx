@@ -34,10 +34,9 @@ const EverythingContainer = ():JSX.Element =>{
     let mapPosts:JSX.Element[] = posts.map((e,i)=>{
         return(
         <>
-        <div key={i}>
-        <p>{e.name}</p>
-        <p id="message">{e.text_content}</p>
-       
+        <div className="postContainer" key={i}>
+        <p className="name">{e.name}</p>
+        <p className="message">{e.text_content}</p>
         </div>
         
         </>
