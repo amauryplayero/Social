@@ -46,11 +46,12 @@ describe('Text component capabilities',()=>{
     await driver.findElement(By.id('inputText')).sendKeys(writtenText)
     await driver.findElement(By.id('name')).sendKeys(name)
     await driver.findElement(By.id('uploadTextButton')).click()
-    // await driver.sleep(4000)
-    let messagesUploaded = await driver.findElement(By.xpath(""));
-    expect(messagesUploaded).toContain
+
+    // let messagesUploaded = await driver.findElement(By.xpath("//div[@class='postContainer']"));
+    let individualMessage = await driver.findElement(By.xpath(`//*[text()='${writtenText}']`)).getText()
+    // await driver.sleep(2000)
     // let individualMessage = messagesUploaded[1].findElement(By.xpath("//p[@class='message']"));
-    console.log(messagesUploaded)
+    await expect(individualMessage).toMatch(writtenText)
     // expect(messagesUploaded).toContain(writtenText)
 
   })

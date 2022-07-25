@@ -1,10 +1,16 @@
 import {useState} from 'react'
 import axios from 'axios'
 
-const Text = (): JSX.Element => {
+
+interface Iprop {
+    getAllPostsApiCall?:Function
+}
+
+const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
     const [inputText, setInputText] = useState<String>("")
     const [name, setName] = useState<String>("")
     const [input, setInput] = useState<{}>({input:'',name:""})
+    const [postState, setPostState] = useState<string>("")
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>):void =>{
         if(e.target.id === 'inputText'){
@@ -24,13 +30,29 @@ const Text = (): JSX.Element => {
                     headers: {'Content-Type': 'application/json'},
                     body:JSON.stringify({text:inputText,name:name})
                     }
-                ).then(res=>{ console.log(res)}
+                ).then(res=>{setPostState("posted")}
             )
         }
         catch(err){
 
         }
 
+    }
+
+    if (postState === "posted") {
+        // refresh get api call for everything container
+        // getAllPostsApiCall()
+        props.getAllPostsApiCall?.()
+        return(
+        <>
+        <div>
+            "congrats!"
+        </div>
+        <button>
+            send anotherone
+        </button>
+
+        </>)
     }
 
 

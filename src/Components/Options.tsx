@@ -3,7 +3,14 @@ import Drawing from './Drawing'
 import Text from './Text'
 import Image from './Image'
 
-const Options = (): JSX.Element => {
+
+interface Iprop {
+    getAllPostsApiCall?:Function
+}
+
+const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
+
+  
 
 
     const [option, setOption] = useState("menu")
@@ -36,7 +43,7 @@ const Options = (): JSX.Element => {
         case "Text":
             currentActionDisplayed = 
             <>
-            <Text />
+            <Text getAllPostsApiCall={props.getAllPostsApiCall}/>
             <button id="menu" onClick={(event)=>handleOption(event)}>cancel</button>
             </>
             break;
