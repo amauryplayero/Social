@@ -8,6 +8,8 @@ interface Iprop {
 }
 
 const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
+
+    let url = window.location
     interface Data{
         name:string,
         text_content:string
