@@ -48,6 +48,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
         <div className="postContainer" key={i}>
         <p className="name">{e.name}</p>
         <p className="message">{e.text_content}</p>
+        
         </div>
         </>
         )

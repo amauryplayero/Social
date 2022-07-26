@@ -28,16 +28,24 @@ body{
 #EverythingContainerInAppContainer{
   position:absolute;
   top: 30px;
-  
+  height: 100%;
   /* width: 40px; */
   width: 100vw;
   /* border: red solid; */
-  
-  
-  
 
 }
 
+#EverythingContainer{
+  /* border: none; */
+  background-color: rgb(255, 255, 255);
+  height: 80vh;
+  /* overflow:scroll; */
+  border-radius: 60px;
+  padding-top: 60px;
+  display: flex;
+ align-items: center;
+  flex-direction: column;
+}
 #imageBackgroundContainer{
   height: 100vh;
   /* background-color: red; */
@@ -50,16 +58,6 @@ max-width: 100%;
 max-height: 100%;
 }
 
-#EverythingContainer{
-  /* border: none; */
-  background-color: rgb(255, 255, 255);
-  height: 200vh;
-  border-radius: 60px;
-  padding-top: 60px;
-  display: flex;
- align-items: center;
-  flex-direction: column;
-}
 
 #iconsContainer{
   border: 3px rgb(225, 225, 225) solid;
@@ -82,16 +80,17 @@ max-height: 100%;
 }
 
 #commentsContainer{
-  /* border: rgb(216, 216, 216) solid; */
+  border: rgb(216, 216, 216) solid;
   border-radius: 10px;
   height: 100vh;
   padding-top: 20px;
   margin-top: 20px;;
   width: 85%;
+  overflow: scroll;
 }
 
 .postContainer{
-  border: grey solid;
+  /* border: grey solid; */
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 10px;
