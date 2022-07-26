@@ -20,7 +20,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
     // let posts:string[] = []
 
    const getAllPostsApiCall = ():void =>{
-        fetch("http://localhost:8000/getAllPosts",{
+        fetch("/getAllPosts",{
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
         })

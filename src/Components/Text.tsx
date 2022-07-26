@@ -30,7 +30,7 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
     const handleSubmit = (e:React.FormEvent):void =>{
         e.preventDefault()
         try{
-           fetch('http://localhost:8000/postText', {
+           fetch('/postText', {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body:JSON.stringify({text:inputText,name:name})
@@ -51,7 +51,7 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
         <div>
             "congrats!"
         </div>
-        
+
         <button onClick={()=>{setPostState("editing");setInputText("");setName("")}}>
             post another message
         </button>
