@@ -1,5 +1,5 @@
 import {useState} from 'react'
-import axios from 'axios'
+
 
 
 interface Iprop {
@@ -10,6 +10,8 @@ interface Iprop {
 
 // interface IpropInOptions {
 // }
+
+const url = "https://server-for-social.onrender.com"
 
 const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
     const [inputText, setInputText] = useState<String>("")
@@ -30,7 +32,7 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
     const handleSubmit = (e:React.FormEvent):void =>{
         e.preventDefault()
         try{
-           fetch('/postText', {
+           fetch(`${url}/postText`, {
                     method: 'POST',
                     headers: {'Content-Type': 'application/json'},
                     body:JSON.stringify({text:inputText,name:name})

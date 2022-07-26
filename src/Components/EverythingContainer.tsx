@@ -7,9 +7,10 @@ interface Iprop {
     getAllPostsApiCall?:Function
 }
 
+const url = "https://server-for-social.onrender.com"
 const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
 
-    let url = window.location
+
     interface Data{
         name:string,
         text_content:string
@@ -20,7 +21,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
     // let posts:string[] = []
 
    const getAllPostsApiCall = ():void =>{
-        fetch("/getAllPosts",{
+        fetch(`${url}/getAllPosts`,{
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
         })
