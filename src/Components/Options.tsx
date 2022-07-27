@@ -3,6 +3,7 @@ import Drawing from './Drawing'
 import Text from './Text'
 import Image from './Image'
 import { State } from 'aws-sdk/clients/directconnect'
+import Gif from './Gif'
 
 
 interface Iprop {
@@ -72,6 +73,12 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
             {cancelButton}
             </>
             break;
+        case "Gif":
+            currentActionDisplayed = 
+            <>
+            <Gif />
+            {cancelButton}
+            </>
 
     }
 

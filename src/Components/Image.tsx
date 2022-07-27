@@ -49,12 +49,12 @@ const Image: React.FC = () => {
 
     return (
     <>
-    <div>image</div>
-    <input type='file' id="chooseFileButton" onChange={(e)=>handleChange(e)}></input>
+    <div>COMING SOON</div>
+    {/* <input type='file' id="chooseFileButton" onChange={(e)=>handleChange(e)}></input>
     <button id="uploadImageButton"
      onClick={()=>handleImagePost()}
     >post</button>
-    <img src={image}></img>
+    <img src={image}></img> */}
     </>
     )
 }
