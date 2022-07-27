@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import { idText } from 'typescript'
 
 
 
@@ -16,7 +17,6 @@ const url = "https://server-for-social.onrender.com"
 const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
     const [inputText, setInputText] = useState<String>("")
     const [name, setName] = useState<String>("")
-    const [input, setInput] = useState<{}>({input:'',name:""})
     const [postState, setPostState] = useState<string>("editing")
 
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>):void =>{
@@ -31,17 +31,21 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
 
     const handleSubmit = (e:React.FormEvent):void =>{
         e.preventDefault()
-        try{
-           fetch(`${url}/postText`, {
-                    method: 'POST',
-                    headers: {'Content-Type': 'application/json'},
-                    body:JSON.stringify({text:inputText,name:name})
-                    }
-                ).then(res=>{setPostState("posted")}
-            )
-        }
-        catch(err){
+        if(name || inputText === ""){
+        
+        } else {
+            try{
+            fetch(`${url}/postText`, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body:JSON.stringify({text:inputText,name:name})
+                        }
+                    ).then(res=>{setPostState("posted")}
+                )
+            }
+            catch(err){
 
+            }
         }
 
     }
@@ -70,11 +74,11 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
     <>
     <form id="formContainer" onSubmit={(e:React.FormEvent):void=>handleSubmit(e)}>
         <div id="nameInputContainer">
-            <input id='nameInput' placeholder='name' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
+            <input id='nameInput' placeholder='name' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}} required></input>
         </div>
   
         <div id="inputTextContainer">
-            <input id="inputText" placeholder='write your message' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}}></input>
+            <input id="inputText" placeholder='write your message' onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{handleChange(e)}} required></input>
         </div>
 
         <div id="cancelAndPostButtonsContainer">

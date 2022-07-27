@@ -44,21 +44,34 @@ describe('Text component capabilities',()=>{
     await driver.get(link)
     await driver.findElement(By.id('Text')).click()
     await driver.findElement(By.id('inputText')).sendKeys(writtenText)
-    await driver.findElement(By.id('name')).sendKeys(name)
+  })
+  test("input is submitted successfully",async ()=>{
+    const writtenText = "testing text hehehe hai"
+    const name = "Test Robot Jones"
+    await driver.get(link)
+    await driver.findElement(By.id('Text')).click()
+    await driver.findElement(By.id('inputText')).sendKeys(writtenText)
+    await driver.findElement(By.id('nameInput')).sendKeys(name)
     await driver.findElement(By.id('uploadTextButton')).click()
-
-    // let messagesUploaded = await driver.findElement(By.xpath("//div[@class='postContainer']"));
-    let n = await 1
+    let n = await 10
     await driver.sleep(n * 1000)
     let individualMessage = await driver.findElement(By.xpath(`//*[text()='${writtenText}']`)).getText()
     // console.log(individualMessage)
     // let individualMessage = messagesUploaded[1].findElement(By.xpath("//p[@class='message']"));
-    // await expect(individualMessage).toMatch(writtenText)
-    // expect(messagesUploaded).toContain(writtenText)
-
+    await expect(individualMessage).toMatch(writtenText)
   })
+  // test("name and input text can't be empty before posting", async ()=>{
+  //   const writtenText = "testing text hehehe hai"
+  //   const name = "Test Robot Jones"
+  //   await driver.get(link)
+  //   await driver.findElement(By.id('Text')).click()
+  //   await driver.findElement(By.id('inputText')).sendKeys(writtenText)
+  //   await driver.findElement(By.id('nameInput')).sendKeys(name)
+  //   await driver.findElement(By.id('uploadTextButton')).click()
+    
+  // })
 
-  // test('')
+
 });
 
 // describe('Image component capabilities',()=>{

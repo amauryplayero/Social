@@ -29,6 +29,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
         })
         .then(res=>{return res.json()})
         .then(data=>{
+            console.log(data)
             setPosts(data)
             setLoadingPosts(false)
         })
@@ -67,7 +68,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
             )
             
         })
-        mapPosts.reverse()
+        // mapPosts.reverse()
 
     }
 
