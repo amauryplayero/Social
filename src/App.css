@@ -27,7 +27,7 @@ body{
 
 #EverythingContainerInAppContainer{
   position:absolute;
-  top: 30px;
+  top: 0px;
   height: 100%;
   /* width: 40px; */
   width: 100vw;
@@ -73,20 +73,39 @@ max-height: 100%;
 }
 
 .actionButton{
-  border: rgb(113, 113, 113) solid;
+  
+
   width: 80px;
   height: 80px;
   border-radius: 20px;
+  font-size: 20px;
+  font-weight: bolder;
+  margin-right: 15px;
+ 
+}
+
+#actionButtonsContainer{
+  /* border: tomato solid; */
+  display: flex;
+  overflow:scroll;
+  justify-content: space-around;
+  height:80px;
+  width: 300px;
+  flex-direction: column-reverse;
+ 
+  flex-wrap:wrap;
+  
 }
 
 #commentsContainer{
   border: rgb(216, 216, 216) solid;
   border-radius: 10px;
   height: 100vh;
-  padding-top: 20px;
+  padding: 20px 15px 15px 15px;
   margin-top: 20px;;
   width: 85%;
   overflow: scroll;
+  
 }
 
 .postContainer{
@@ -94,11 +113,14 @@ max-height: 100%;
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 10px;
+  background-color: rgb(240, 240, 240);
 }
 
 .name{
-  font-size: 15px;
+  font-size: 18px;
   margin: 0 0 0 0;
+  display: flex;
+  justify-content: center;
 }
 
 #nameInput{
@@ -152,3 +174,42 @@ justify-content: space-evenly;
 
 }
 
+#loadingGifContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: red solid; */
+  height: 100%
+}
+
+#loadingGif{
+  width: 60px;
+  height: 60px;
+}
+
+
+
+#Text{
+  /* background-image: linear-gradient(to right, rgb(141, 215, 255) , rgb(155, 255, 184)); */
+
+  color: rgb(0, 0, 0);
+  /* border-image: 
+  linear-gradient(
+    to right, 
+    red, 
+    #d32b2b
+  ) 1 100%; */
+}
+
+#nameSaysContainer{
+  display: flex;
+}
+
+.says{
+  margin: 0 0 0 0;
+  display: flex;
+  justify-content: center;
+  margin-left: 6px;
+  color:grey;
+  margin-top: 2px;
+}

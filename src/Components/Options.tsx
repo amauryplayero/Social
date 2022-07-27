@@ -35,9 +35,13 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
         case "menu":
             currentActionDisplayed = 
             <>
-            <button className="actionButton" id="Drawing" onClick={(event)=>handleOption(event)}>drawing</button>
-            <button className="actionButton" id="Text" onClick={(event)=>handleOption(event)}>text</button>
-            <button className="actionButton" id="Image" onClick={(event)=>handleOption(event)}>image</button>
+            <div id="actionButtonsContainer">
+                <button className="actionButton" id="Drawing" onClick={(event)=>handleOption(event)}>draw</button>
+                <button className="actionButton" id="Text" onClick={(event)=>handleOption(event)}>text</button>
+                <button className="actionButton" id="Image" onClick={(event)=>handleOption(event)}>image</button>
+                <button className="actionButton" id="Gif" onClick={(event)=>handleOption(event)}>gif</button>
+            </div>
+            
             </>
             break;
 

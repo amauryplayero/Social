@@ -18,9 +18,11 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
 
 
     const [posts, setPosts] = useState<Data[]>([])
+    const [loadingPosts, setLoadingPosts] = useState<Boolean>(true)
     // let posts:string[] = []
 
    const getAllPostsApiCall = ():void =>{
+       setLoadingPosts(true)
         fetch(`${url}/getAllPosts`,{
         method: 'GET',
         headers: {'Content-Type': 'application/json'}
@@ -28,6 +30,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
         .then(res=>{return res.json()})
         .then(data=>{
             setPosts(data)
+            setLoadingPosts(false)
         })
 
     }
@@ -40,25 +43,37 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
     },[])
      
 
- 
-
-
-
-
-    let mapPosts:JSX.Element[] = posts.map((e,i)=>{
-        return(
-        <>
-        <div className="postContainer" key={i}>
-        <p className="name">{e.name}</p>
-        <p className="message">{e.text_content}</p>
-        
+    let mapPosts:JSX.Element[] | JSX.Element
+    if(loadingPosts===true){
+        mapPosts = <>
+        <div id="loadingGifContainer">
+            <img id="loadingGif"src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif"></img>
         </div>
         </>
-        )
-        
-    })
 
-    mapPosts.reverse()
+    }else{
+        mapPosts = posts.map((e,i)=>{
+            return(
+            <>
+            <div className="postContainer" key={i}>
+                <div id="nameSaysContainer">
+                    <p className="name">{e.name}</p>
+                    <p className="says">said</p>
+                </div>
+            <p className="message">{e.text_content}</p>
+            
+            </div>
+            </>
+            )
+            
+        })
+        mapPosts.reverse()
+
+    }
+
+
+
+
     
 
     return(
