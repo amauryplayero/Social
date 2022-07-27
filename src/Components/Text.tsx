@@ -4,7 +4,7 @@ import { idText } from 'typescript'
 
 
 interface Iprop {
-    getAllPostsApiCall?:Function,
+    updatePostsAfterUpload?:Function,
     cancelButtonHandler?:Function
     
 }
@@ -31,31 +31,32 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
 
     const handleSubmit = (e:React.FormEvent):void =>{
         e.preventDefault()
-        if(name || inputText === ""){
+       
         
-        } else {
             try{
             fetch(`${url}/postText`, {
                         method: 'POST',
                         headers: {'Content-Type': 'application/json'},
                         body:JSON.stringify({text:inputText,name:name})
                         }
-                    ).then(res=>{setPostState("posted")}
+                    ).then(res=>{ 
+                        setPostState("posted")
+                        props.updatePostsAfterUpload?.()
+                    }
                 )
             }
             catch(err){
 
             }
-        }
+        
 
     }
-
+    // console.log(postState)
     if (postState === "posted") {
-        props.getAllPostsApiCall?.()
         return(
         <>
         <div>
-            "congrats!"
+            Message posted!
         </div>
 
         <button onClick={()=>{setPostState("editing");setInputText("");setName("")}}>

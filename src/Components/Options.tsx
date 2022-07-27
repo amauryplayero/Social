@@ -7,7 +7,7 @@ import Gif from './Gif'
 
 
 interface Iprop {
-    getAllPostsApiCall?:Function,
+    updatePostsAfterUpload?:Function,
 }
 
 
@@ -58,7 +58,7 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
             currentActionDisplayed = 
             <>
             <div id="textOptionsContainer">
-            <Text getAllPostsApiCall={props.getAllPostsApiCall}
+            <Text updatePostsAfterUpload={props.updatePostsAfterUpload}
                   cancelButtonHandler={cancelButtonHandler}/>
             {/* {cancelButton} */}
             </div>
