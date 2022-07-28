@@ -23,7 +23,7 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
     const handleOption = (e:React.MouseEvent<HTMLButtonElement>):void =>{
         let chosenOption = e.target as HTMLButtonElement 
         setOption(chosenOption.id)
-        console.log(chosenOption.id)
+   
     }
 
     const cancelButtonHandler = ():void =>{

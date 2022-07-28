@@ -63,6 +63,7 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
         <button onClick={()=>{setPostState("editing");setInputText("");setName("")}}>
             post another message
         </button>
+        <button onClick={()=>props.cancelButtonHandler?.()}>go back to options</button>
 
         
 
