@@ -15,7 +15,9 @@ function App() {
 
     <div id="EverythingContainerInAppContainer">
     <div id="profilePictureContainer">
-      <img id="profilePicture"src="https://i.imgur.com/w6OLIjo.jpg"></img>
+      <div id="profilePictureContainerDiv">
+        <img id="profilePicture"src="https://i.imgur.com/iTMipbR.jpg"></img>
+      </div>
     </div>
         <EverythingContainer />
     </div>
