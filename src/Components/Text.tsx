@@ -13,6 +13,7 @@ interface Iprop {
 // }
 
 const url = "https://server-for-social.onrender.com"
+const devUrl = "http://localhost:8001"
 
 const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
     const [inputText, setInputText] = useState<String>("")

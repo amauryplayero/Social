@@ -4,12 +4,16 @@ import { setConstantValue } from 'typescript'
 import Drawing from './Drawing'
 import Options from './Options'
 
+
+
 interface Iprop {
     getAllPostsApiCall?:Function
     updatePostsAfterUpload?:Function
 }
 
 const url = "https://server-for-social.onrender.com"
+const devUrl = "http://localhost:8001"
+
 const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
 
 
@@ -17,39 +21,31 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
         name:string,
         text_content:string
      }
-
-
     const [posts, setPosts] = useState<Data[]>([])
-    const [loadedPosts, setLoadedPosts] = useState<Boolean | undefined>()
     const [loading, setLoading] = useState<Boolean>(true)
 
 
    const getAllPostsApiCall = ():void | string=>{
-    console.log("inside the get all function",loadedPosts)
-
             fetch(`${url}/getAllPosts`,{
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
             })
             .then(res=>{return res.json()})
             .then(data=>{
-                // console.log('fired')
                 setPosts(data)
                 setLoading(false)
             })
     
     }
-    console.log(posts)
+   
 
     const updatePostsAfterUpload = ():void =>{
         getAllPostsApiCall()
-        // setLoadedPosts(false)
     }
     
 
    useEffect(()=>{
        getAllPostsApiCall()
-
     },[])
      
 
@@ -77,8 +73,6 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
             )
             
         })
-    
-
     }
 
 

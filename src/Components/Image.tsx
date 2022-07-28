@@ -2,7 +2,8 @@ import React from "react"
 import {useState} from 'react'
 
 
-
+const url = "https://server-for-social.onrender.com"
+const devUrl = "http://localhost:8001"
 
 const Image: React.FC = () => {
     const [image, setImage] = useState()
@@ -10,8 +11,8 @@ const Image: React.FC = () => {
 
     
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>):void=>{
-        const input = e.target.files![0]
-        const reader = new FileReader();
+        // const input = e.target.files![0]
+        // const reader = new FileReader();
         // reader.onload!(function (event:ProgressEvent<FileReader>):void{
         //     console.log("this never works : ", event);
         //     console.log(event);
@@ -23,7 +24,7 @@ const Image: React.FC = () => {
         
     }
 
-    const handleImagePost = async ():Promise<Boolean> =>{
+    const handleImagePost = ():void =>{
         const params = {
            image:'image for now'
         };
@@ -34,15 +35,15 @@ const Image: React.FC = () => {
         };
         
         try {
-            fetch('http://localhost:8000/postImageToS3',options)
+            fetch(`${devUrl}/postImageToS3`,options)
                 .then(res=>{console.log(res)}
             )
         }
         catch {
-            return false
+           
         }
 
-        return true
+        
 
     }
 
@@ -50,11 +51,11 @@ const Image: React.FC = () => {
     return (
     <>
     <div>COMING SOON</div>
-    {/* <input type='file' id="chooseFileButton" onChange={(e)=>handleChange(e)}></input>
+    <input type='file' id="chooseFileButton" onChange={(e)=>handleChange(e)}></input>
     <button id="uploadImageButton"
      onClick={()=>handleImagePost()}
     >post</button>
-    <img src={image}></img> */}
+    <img src={image}></img>
     </>
     )
 }
