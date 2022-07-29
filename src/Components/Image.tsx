@@ -15,14 +15,14 @@ const Image: React.FC = () => {
     
 
    
-    // console.log(fileName)
-    // console.log(file)
     
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>):void=>{
         let fileInputted:Blob = e.target.files![0]
         setFile(fileInputted)
         setFileName(e.target.files?.[0].name) 
     }
+    // console.log(fileName)
+    // console.log(file)
 
 
 
@@ -39,15 +39,15 @@ const Image: React.FC = () => {
       
         const options = {
             method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({name:formData})
+            // headers: {"Content-Type": "multipart/form-data"},
+            body: formData
             
         };
 
         try{
-            // fetch(`${devUrl}/postImageToS3`,options)
-            //         .then(res=>{return res.json()})
-            //         .then(data=>{console.log(data)}) 
+            fetch(`${devUrl}/postImageToS3`,options)
+                    .then(res=>{return res.json()})
+                    .then(data=>{console.log(data)}) 
          
         } 
         catch(err){
