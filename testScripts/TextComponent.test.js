@@ -119,28 +119,3 @@ afterAll(async ()=>{
 
     await driver.quit()
 }, 15000);
-
-
-  // test('it performs a validation of title on the home page', async ()=>{
-  //     await browser.get(url)
-  //     const title = await browser.findElement(by.tagName('h1')).getText()
-  //     expect(title).toContain('SeleniumHQ Browser Automation')
-  // })
-
-  // test('it performs a validation of the search box on the page', async ()=>{
-  //     const foundAndLoadedCheck = async() =>{
-  //         await until.elementLocated(by.id('search'))
-  //         const value = await browser.findElement(by.id('search')).getText()
-  //         return value !== '~'
-  //     }
-  //     await browser.wait(foundAndLoadedCheck, 3000)
-  //     const search = await broser.findElement(by.id('search')).getText()
-  //     expect(search).toEqual('')
-  // })
-
-  // describe ('it captures a screenshot of the current page on the browser', ()=>{
-  //   test('snap a picture by takin the screenshot', async () =>{
-  //     await browser.get(url)
-  //     await browser.takeScreenshot()
-  //   })
-  // })

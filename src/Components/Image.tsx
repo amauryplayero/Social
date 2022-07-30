@@ -31,11 +31,11 @@ const Image: React.FC = () => {
         })
     }
 
-    const onSelectFile = async (event:React.ChangeEvent<HTMLInputElement>) => {
-        const file = event.target.files![0];
+    const onSelectFile = async (e:React.MouseEvent<HTMLButtonElement, MouseEvent>):Promise<void> => {
+        const file = e.target.files![0];
         const convertedFile = await convertToBase64(file);
         const s3URL = await axios.post(
-            'http://localhost:3001/upload',
+            `${devUrl}/postImageToS3`,
             {
                 image: convertedFile,
                 imageName: file.name
@@ -58,8 +58,8 @@ const Image: React.FC = () => {
         <img src="https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo-768x432.png" style={{width: '40px'}}></img>
     </div>
         <input type='file' id="chooseFileButton" onChange={(e)=>handleChange(e)}></input>
-        {/* <button id="uploadImageButton" onClick={()=>handleImagePost()}>post */}
-        {/* </button> */}
+        <button id="uploadImageButton" onClick={(e)=>onSelectFile(e)}>post
+        </button>
   
     
     </>
