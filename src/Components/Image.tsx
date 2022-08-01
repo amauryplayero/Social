@@ -11,34 +11,33 @@ const devUrl = "http://localhost:8001"
 
 const Image: React.FC = () => {
     const [file, setFile] = useState< Blob>()
-    const [fileArrayBuffer, setFileArrayBuffer] = useState<ArrayBuffer | string>()
+    const [fileEncoded, setFileEncoded] = useState<ArrayBuffer | string>()
     const [fileName, setFileName] = useState<string>()
     
 
    
     
-    const handleChange = async (e:React.ChangeEvent<HTMLInputElement>):Promise<void>=>{
-        const file = e?.target.files![0]
-        const convertedFile = await convertToBase64(file)
-    }
-    const convertToBase64 = (file:File) => {
-        return new Promise(resolve => {
-            const reader = new FileReader();
-            reader.readAsDataURL(file);
-            reader.onload = () => {
-                resolve(reader.result);
-            }
-        })
-    }
-
-    const onSelectFile = async (e:React.MouseEvent<HTMLButtonElement, MouseEvent>):Promise<void> => {
+    const handleChange = (e:React.ChangeEvent<HTMLInputElement>):void=>{
         const file = e.target.files![0];
-        const convertedFile = await convertToBase64(file);
-        const s3URL = await axios.post(
+        const reader = new FileReader
+        reader.onload=(e)=>{
+            // console.log(e.target?.result!)
+            setFileEncoded(e.target?.result!)
+        }
+        reader.readAsBinaryString(file)
+        setFileName(e?.target.files![0].name)
+    }
+  
+    // console.log(fileArrayBuffer)
+    
+    const onSelectFile = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>):void => {
+        // const file = e.target.files![0];
+        // const convertedFile = await convertToBase64(file);
+        const s3URL = axios.post(
             `${devUrl}/postImageToS3`,
             {
-                image: convertedFile,
-                imageName: file.name
+                image: fileEncoded,
+                imageName: fileName
             }
         );
     }

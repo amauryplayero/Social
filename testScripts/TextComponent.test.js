@@ -98,21 +98,7 @@ describe('Text component capabilities',()=>{
 
 
 
-// describe('executing test scenario on the website www.selenium.dev', ()=>{
-//   let tweet = 'aaaaaa'
 
-//   test('performing initial test to tweet', async ()=>{
-
-    
-//     // add the desired options
-//     await driver.get('https://www.twitter.com')
-//     await driver.findElement(By.className('DraftEditor-editorContainer'))
-//     .sendKeys(tweet)
-//     await driver.findElement(By.className('css-901oao css-16my406 r-poiln3 r-bcqeeo r-qvutc0'))
-//     .click
-//   });
-  
-// }, 10000);
 
 afterAll(async ()=>{
 
