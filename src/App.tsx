@@ -2,7 +2,7 @@ import React from 'react';
 
 import './App.css';
 import BackgroundImages from './Components/BackgroundImages'
-import EverythingContainer from './Components/EverythingContainer';
+import {EverythingContainer} from './Components/EverythingContainer';
 
 function App() {
 

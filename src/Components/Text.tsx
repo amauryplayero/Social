@@ -6,7 +6,6 @@ import { idText } from 'typescript'
 interface Iprop {
     updatePostsAfterUpload?:Function,
     cancelButtonHandler?:Function
-    
 }
 
 // interface IpropInOptions {
