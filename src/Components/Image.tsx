@@ -27,18 +27,18 @@ const Image: React.FC = (props:Iprop) => {
         const file = e.target.files![0];
         const reader = new FileReader
         reader.onload=(e)=>{
-            // console.log(e.target?.result!)
+            console.log(e.target?.result!)
             setFileEncoded(e.target?.result!)
         }
-        reader.readAsBinaryString(file)
+        reader.readAsDataURL(file)
         setFileName(e?.target.files![0].name)
     }
   
-    console.log(fileName)
+   
     
     const onSelectFile = (e:React.MouseEvent<HTMLButtonElement, MouseEvent>):void => {
 
-        const s3URL = axios.post(
+        axios.post(
             `${devUrl}/postImageToS3`,
             {
                 image: fileEncoded,

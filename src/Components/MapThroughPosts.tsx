@@ -28,10 +28,12 @@ const MapThroughPosts = (props:IProps):JSX.Element=>{
     const srcUrl = axios.get(`${devUrl}/getImageFromS3`, { params: body })
             .then(res => {
                 const arrayBufferView = new Uint8Array(res.data.Body.data)
-                const blob = new Blob([arrayBufferView],{ type: "image/jpeg" } )
-                const imgSource = URL.createObjectURL( blob );
+                console.log(res.data.Body.data)
+                return 'hai'
+                // const blob = new Blob([arrayBufferView],{ type: "image/jpeg" } )
+                // const imgSource = URL.createObjectURL( blob );
                 // console.log(blob)
-                return imgSource
+                // return imgSource
             })
 
     srcUrl.then()

@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { ReactNode, useEffect } from 'react'
-import {useState} from 'react'
+import {useState, useRef} from 'react'
 import { setConstantValue } from 'typescript'
 import Drawing from './Drawing'
 import Options from './Options'
@@ -29,6 +29,8 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
 
     const [posts, setPosts] = useState<IData[]| undefined>([])
     const [loading, setLoading] = useState<Boolean>(true)
+    const [imageSource, setImageSource ] = useState("")
+   
 
 
    const getAllPostsApiCall = ():void | string=>{
@@ -63,34 +65,21 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
         </div>
         </>
     }else{
+        console.log('hai')
         mapPosts = posts!.map((e, i) => {
             if (e.type === "image") {
-                // let body = {
-                //     uuid: e.image_uuid
-                //     }
-                // const srcUrl = axios.get(`${devUrl}/getImageFromS3`, { params: body })
-                // .then(res => {
-                //     const arrayBufferView = new Uint8Array(res.data.Body.data)
-                //     const blob = new Blob([arrayBufferView],{ type: "image/jpeg" } )
-                //     const imgSource = URL.createObjectURL( blob );
-                //     // console.log(blob)
-                //     return imgSource
-                // })
 
-                const portrayImage = async ():Promise<JSX.Element> =>{
                      let body = {
                     uuid: e.image_uuid
                     }
-                const srcUrl = await axios.get(`${devUrl}/getImageFromS3`, { params: body })
+                axios.get(`${devUrl}/getImageFromS3`, { params: body })
                 .then(res => {
-                    const arrayBufferView = new Uint8Array(res.data.Body.data)
-                    const blob = new Blob([arrayBufferView],{ type: "image/jpeg" } )
-                    const imgSource = URL.createObjectURL( blob );
-                    // console.log(blob)
-                    return imgSource
+                setImageSource(res.data)
+                    
+                    
                 })
 
-                console.log(srcUrl)
+                console.log('data:image/jpg,'+imageSource)
                 return(
                 // <MapThroughPosts element={e}/>
                 <>
@@ -98,7 +87,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
                            <div className="postContainer">
                               <div id="nameSaysContainer">
                                 {`hi`}
-                            <img src={`${srcUrl}`}></img>
+                            <img width="300px"src={`data:image/jpg,${imageSource}`}></img>
                             </div>
                              <p className="message">{'hai testing'}</p>
         
@@ -106,9 +95,9 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
                      </>
                 </>
                 )
-                }
+                
 
-                portrayImage()
+                
                
                 
             } else {
