@@ -29,12 +29,12 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
 
     const [posts, setPosts] = useState<IData[]| undefined>([])
     const [loading, setLoading] = useState<Boolean>(true)
-    const [imageSource, setImageSource ] = useState("")
+    const [imageSource, setImageSource ] = useState()
    
 
 
    const getAllPostsApiCall = ():void | string=>{
-            fetch(`${url}/getAllPosts`,{
+            fetch(`${devUrl}/getAllPosts`,{
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
             })
@@ -64,22 +64,20 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
             <img id="loadingGif"src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif"></img>
         </div>
         </>
-    }else{
-        console.log('hai')
+    }else if(posts!==undefined){
+       
+    
+      
         mapPosts = posts!.map((e, i) => {
             if (e.type === "image") {
+                
+                // const imageUrl = axios.get(`${devUrl}/getImageFromS3`, { params: body })
+                // .then(res => {
+                // // setImageSource(res.data)
+                // console.log(res.data)
+                // })
 
-                     let body = {
-                    uuid: e.image_uuid
-                    }
-                axios.get(`${devUrl}/getImageFromS3`, { params: body })
-                .then(res => {
-                setImageSource(res.data)
-                    
-                    
-                })
-
-                console.log('data:image/jpg,'+imageSource)
+    
                 return(
                 // <MapThroughPosts element={e}/>
                 <>
@@ -87,7 +85,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
                            <div className="postContainer">
                               <div id="nameSaysContainer">
                                 {`hi`}
-                            <img width="300px"src={`data:image/jpg,${imageSource}`}></img>
+                            <img width="300px"src={imageSource}></img>
                             </div>
                              <p className="message">{'hai testing'}</p>
         
@@ -95,11 +93,6 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
                      </>
                 </>
                 )
-                
-
-                
-               
-                
             } else {
                 return (
                     <>
@@ -127,7 +120,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
                 <Options updatePostsAfterUpload={updatePostsAfterUpload}/>
             </div>
             <div id="commentsContainer">
-                {mapPosts}
+                {mapPosts!}
             </div>
 
         </div>

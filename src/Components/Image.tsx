@@ -21,7 +21,7 @@ const Image: React.FC = (props:Iprop) => {
     const [name, setName] = useState<string>()
     
 
-   
+   //
     
     const handleChange = (e:React.ChangeEvent<HTMLInputElement>):void=>{
         const file = e.target.files![0];
@@ -30,7 +30,7 @@ const Image: React.FC = (props:Iprop) => {
             console.log(e.target?.result!)
             setFileEncoded(e.target?.result!)
         }
-        reader.readAsDataURL(file)
+        reader.readAsBinaryString(file)
         setFileName(e?.target.files![0].name)
     }
   
