@@ -28,6 +28,7 @@ const Image: React.FC = (props:Iprop) => {
         const reader = new FileReader
         reader.onload=(e)=>{
             console.log(e.target?.result!)
+            // const jsonBinary = e.target?.result!
             setFileEncoded(e.target?.result!)
         }
         reader.readAsBinaryString(file)
