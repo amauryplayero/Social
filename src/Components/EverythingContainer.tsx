@@ -23,6 +23,7 @@ export interface IData{
     name:string,
     text_content:string,
     type: string,
+    image_s3_url:string,
  }
 const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
 
@@ -49,33 +50,33 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
 
     const updatePostsAfterUpload = ():void =>{
         getAllPostsApiCall()
-    }
+    }//
     
 
    useEffect(()=>{
        getAllPostsApiCall()
     },[])
-    //  console.log(posts)
+     console.log(posts)
     
     let mapPosts:(JSX.Element | undefined)[] | JSX.Element
     if(loading===true){
         mapPosts = <>
         <div id="loadingGifContainer">
-            <img id="loadingGif"src="https://c.tenor.com/I6kN-6X7nhAAAAAj/loading-buffering.gif"></img>
+            <img id="loadingGif"src={`https://leaveamessagebucket.s3.amazonaws.com/6655f6f5-1567-42b8-b767-8dff3e84e754.jpeg`}></img>
         </div>
         </>
-    }else if(posts!==undefined){
-       
-    
-      
+    }else {
         mapPosts = posts!.map((e, i) => {
             if (e.type === "image") {
-                
+                let body = {
+                    uuid:e.image_uuid
+                }
                 // const imageUrl = axios.get(`${devUrl}/getImageFromS3`, { params: body })
                 // .then(res => {
                 // // setImageSource(res.data)
                 // console.log(res.data)
                 // })
+                console.log(e.image_s3_url)
 
     
                 return(
@@ -85,7 +86,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
                            <div className="postContainer">
                               <div id="nameSaysContainer">
                                 {`hi`}
-                            <img width="300px"src={imageSource}></img>
+                            <img width="300px"src={e.image_s3_url}></img>
                             </div>
                              <p className="message">{'hai testing'}</p>
         
