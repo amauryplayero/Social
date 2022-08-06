@@ -41,10 +41,11 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
             })
             .then(res=>{return res.json()})
             .then(data=>{
+                console.log(data)
                 setPosts(data)
                 setLoading(false)
             })
-    
+    //
     }
    
 
@@ -56,7 +57,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
    useEffect(()=>{
        getAllPostsApiCall()
     },[])
-     console.log(posts)
+    //  console.log(posts)
     
     let mapPosts:(JSX.Element | undefined)[] | JSX.Element
     if(loading===true){
@@ -71,14 +72,8 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
                 let body = {
                     uuid:e.image_uuid
                 }
-                // const imageUrl = axios.get(`${devUrl}/getImageFromS3`, { params: body })
-                // .then(res => {
-                // // setImageSource(res.data)
-                // console.log(res.data)
-                // })
-                console.log(e.image_s3_url)
+                // console.log(e)
 
-    
                 return(
                 // <MapThroughPosts element={e}/>
                 <>
