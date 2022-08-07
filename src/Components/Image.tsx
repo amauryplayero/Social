@@ -46,17 +46,12 @@ const Image: React.FC = (props:Iprop) => {
                 imageName: fileName,
                 name: name
             }
-        );
-        // props.updatePostsAfterUpload?.()
+        ).then(res=>{
+            console.log('then fired inside the post')
+            props.updatePostsAfterUpload?.()
+        })
     }
    
-    // console.log(fileName)
-    // console.log(file)
-
-
-
-    
-
 
     return (
     <>
