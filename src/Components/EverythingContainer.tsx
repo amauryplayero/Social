@@ -41,6 +41,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
             })
             .then(res=>{return res.json()})
             .then(data=>{
+                // console.log('hai')
                 console.log(data)
                 setPosts(data)
                 setLoading(false)
@@ -63,7 +64,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
     if(loading===true){
         mapPosts = <>
         <div id="loadingGifContainer">
-            <img id="loadingGif"src={`https://leaveamessagebucket.s3.amazonaws.com/6655f6f5-1567-42b8-b767-8dff3e84e754.jpeg`}></img>
+            <img id="loadingGif"src={`https://i.stack.imgur.com/kOnzy.gif`}></img>
         </div>
         </>
     }else {
@@ -80,8 +81,9 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
                 <>
                            <div className="postContainer">
                               <div id="nameSaysContainer">
-                                {`hi`}
-                            <img width="300px"src={e.image_s3_url}></img>
+                              
+                            {/* <img width="300px"src={e.image_s3_url}></img> */}
+                            <img width="300px"src={`${e.image_s3_url}`}></img>
                             </div>
                              <p className="message">{'hai testing'}</p>
         
