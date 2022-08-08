@@ -108,7 +108,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
     return(
         <>
         <div id="EverythingContainer">
-            Leave a message!
+            <span id="leaveAMessageText">Leave a message!</span>
             <div id="iconsContainer">
                 <Options updatePostsAfterUpload={updatePostsAfterUpload}/>
             </div>

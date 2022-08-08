@@ -15,20 +15,21 @@ body{
   display: flex;
   justify-content: center;
   position:relative;
-  top:60px;
+  /* top:60px; */
   /* width: 120px;
   height: 120px; */
 }
 
 #profilePictureContainerDiv{
 
-  width: 100px;
-  height: 100px;
+  width: 80px;
+  height: 80px;
   position: relative;
   overflow: hidden;
   border-radius: 50%;
-  border: 4px white solid;
-
+  border: 6px white solid;
+  margin-bottom: 10px;
+  margin-top: 10px;
 }
 
 #profilePicture{
@@ -54,14 +55,14 @@ body{
 }
 
 #EverythingContainer{
-  /* border: none; */
+  /* border: red solid; */
   background-color: rgb(255, 255, 255);
-  height: 80vh;
+  height: 100vh;
   /* overflow:scroll; */
   border-radius: 60px;
   border-bottom-left-radius: 0px 0px;
   border-bottom-right-radius: 0px 0px;
-  padding-top: 60px;
+  padding-top: 15px;
   display: flex;
  align-items: center;
   flex-direction: column;
@@ -257,8 +258,8 @@ justify-content: space-evenly;
   display: flex;
   flex-direction: column;
   max-width:70%;
-  margin-left: 2%;
-  margin-right: 2%;
+  /* margin-left: 1px;
+  margin-right: 1%; */
   /* border: red solid; */
 }
 
@@ -275,10 +276,37 @@ justify-content: space-evenly;
 
 #chooseFileAndPostButtonContainer{
   display: flex;
+  justify-content: space-between;
   margin-left: 2%;
   margin-right: 5%;
   /* border: solid red; */
   /*  */
+}
+
+#chooseFileButton{
+  /* border: red solid; */
+}
+
+#uploadImageButton{
+  /* border: 2px rgb(225, 225, 225) solid; */
+  border: none;
+  font-weight: bold;
+  padding: 5px 10px;
+  border-radius: 2px;
+  background-color: rgb(116, 180, 235);
+  color: white;
+  /* box-shadow: 2px 2px 5px 1px rgb(194, 194, 194); */
+}
+
+#inputFileLabel{
+  /* border: red solid; */
+  width: 30px;
+}
+#leaveAMessageText{
+  font-weight: bold;
+  font-size: 23px;
+  color: rgb(128, 128, 128);
+  margin-bottom: 8px;
 }
 
 #cancelButtonInImageContainer{

@@ -76,7 +76,9 @@ const Image: React.FC<Iprop> = (props:Iprop) => {
         <img src="https://1000logos.net/wp-content/uploads/2021/05/GitHub-logo-768x432.png" style={{width: '40px'}}></img> */}
     </div>
         <div id="chooseFileAndPostButtonContainer">
+            <label id="inputFileLabel">
             <input type='file' id="chooseFileButton" onChange={(e)=>handleChange(e)} required></input>
+            </label>
             <input value="post image" type="submit" id="uploadImageButton" ></input>
         </div>
     </form>
