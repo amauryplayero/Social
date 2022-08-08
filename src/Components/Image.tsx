@@ -63,7 +63,7 @@ const Image: React.FC<Iprop> = (props:Iprop) => {
     if(postState==="editing"){
     return (
     <>
-    <form onSubmit={(e:any):void=>onSelectFile(e)}>
+    <form id="formContainerForImage"onSubmit={(e:any):void=>onSelectFile(e)}>
     <div>
         <div id="cancelButtonInImageContainer">
             <button id="cancelButtonInImage" onClick={()=>props.cancelButtonHandler?.()}>X</button>
