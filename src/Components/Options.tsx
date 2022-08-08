@@ -6,7 +6,8 @@ import Gif from './Gif'
 
 
 interface Iprop {
-    updatePostsAfterUpload?:Function
+    updatePostsAfterUpload?:Function,
+    isItLoading?:Function
 }
 
 
@@ -36,9 +37,9 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
             currentActionDisplayed = 
             <>
             <div id="actionButtonsContainer">
-                <button className="actionButton" id="Text" onClick={(event)=>handleOption(event)}>text</button>
-                <button className="actionButton" id="Drawing" onClick={(event)=>handleOption(event)}>draw</button>
-                <button className="actionButton" id="Image" onClick={(event)=>handleOption(event)}>image</button>
+                <button className="actionButton" id="Text" onClick={(event)=>handleOption(event)}></button>
+                <button className="actionButton" id="Image" onClick={(event)=>handleOption(event)}></button>
+                <button className="actionButton" id="Drawing" onClick={(event)=>handleOption(event)}></button>
                 <button className="actionButton" id="Gif" onClick={(event)=>handleOption(event)}>gif</button>
             </div>
             
@@ -58,7 +59,8 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
             <>
             <div id="textOptionsContainer">
             <Text updatePostsAfterUpload={props.updatePostsAfterUpload}
-                  cancelButtonHandler={cancelButtonHandler}/>
+                  cancelButtonHandler={cancelButtonHandler}
+                  isItLoading={props.isItLoading}/>
             {/* {cancelButton} */}
             </div>
            
@@ -70,7 +72,8 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
             <>
             
             <Image updatePostsAfterUpload={props.updatePostsAfterUpload}
-                    cancelButtonHandler={cancelButtonHandler}/>
+                    cancelButtonHandler={cancelButtonHandler}
+                    isItLoading={props.isItLoading}/>
 
             </>
             break;

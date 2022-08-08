@@ -100,10 +100,14 @@ max-height: 100%;
 
   width: 80px;
   height: 80px;
-  border-radius: 20px;
+  /* border-radius: 15px; */
   font-size: 20px;
   font-weight: bolder;
   margin-right: 15px;
+  border-radius: 10px;
+
+  /* border: rgb(143, 143, 143) 3px solid;
+  border-radius: 7px; */
  
 }
 
@@ -215,15 +219,33 @@ justify-content: space-evenly;
 
 
 #Text{
-  /* background-image: linear-gradient(to right, rgb(141, 215, 255) , rgb(155, 255, 184)); */
+  background: #f0f0f0 url("https://cdn-icons-png.flaticon.com/512/3721/3721901.png");
+  background-position: 5px 5px;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
 
   color: rgb(0, 0, 0);
-  /* border-image: 
-  linear-gradient(
-    to right, 
-    red, 
-    #d32b2b
-  ) 1 100%; */
+  
+
+}
+
+
+
+#Image{
+  background: #f0f0f0 url("https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-image-512.png");
+  background-position: 5px 5px;
+  background-size: 38px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#Drawing{
+  background: #f0f0f0 url("https://i.imgur.com/ulKPvsC.png");
+  background-position: 5px 5px;
+  background-size: 45px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #nameSaysContainer{
@@ -252,6 +274,7 @@ justify-content: space-evenly;
 #image{
   border-radius: 10px;
   max-width: 300px;
+  
 }
 
 #nameAndDescriptionContainer{
@@ -302,10 +325,11 @@ justify-content: space-evenly;
   /* border: red solid; */
   width: 30px;
 }
+
 #leaveAMessageText{
   font-weight: bold;
   font-size: 23px;
-  color: rgb(128, 128, 128);
+  color: rgb(85, 85, 85);
   margin-bottom: 8px;
 }
 
@@ -327,6 +351,7 @@ justify-content: space-evenly;
   font-size: 23px;
   margin: 0 0 0 0;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 #formContainerForImage{

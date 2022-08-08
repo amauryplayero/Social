@@ -6,7 +6,8 @@ import {useState} from 'react'
 
 interface Iprop {
     updatePostsAfterUpload?:Function,
-    cancelButtonHandler?:Function
+    cancelButtonHandler?:Function,
+    isItLoading?:Function
 }
 
 
@@ -37,13 +38,12 @@ const Image: React.FC<Iprop> = (props:Iprop) => {
   
    
     
-    const onSelectFile = (e:any):void => {
+    const onSubmit = (e:any):void => {
         e.preventDefault()
         setPostState("posted")
+        props.isItLoading?.(true)
         const nameInputted= e.target[1].value
         const descriptionInputted = e.target[2].value
-        
-        console.log(e)
 
       
         axios.post(
@@ -63,7 +63,7 @@ const Image: React.FC<Iprop> = (props:Iprop) => {
     if(postState==="editing"){
     return (
     <>
-    <form id="formContainerForImage"onSubmit={(e:any):void=>onSelectFile(e)}>
+    <form id="formContainerForImage"onSubmit={(e:any):void=>onSubmit(e)}>
     <div>
         <div id="cancelButtonInImageContainer">
             <button id="cancelButtonInImage" onClick={()=>props.cancelButtonHandler?.()}>X</button>

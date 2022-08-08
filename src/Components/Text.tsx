@@ -5,7 +5,8 @@ import { idText } from 'typescript'
 
 interface Iprop {
     updatePostsAfterUpload?:Function,
-    cancelButtonHandler?:Function
+    cancelButtonHandler?:Function,
+    isItLoading?:Function
 }
 
 // interface IpropInOptions {
@@ -31,6 +32,7 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
 
     const handleSubmit = (e:React.FormEvent):void =>{
         setPostState("posted")
+        props.isItLoading?.(true)
         e.preventDefault()
        
         

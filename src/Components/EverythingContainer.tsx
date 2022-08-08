@@ -6,12 +6,11 @@ import Drawing from './Drawing'
 import Options from './Options'
 import MapThroughPosts from './MapThroughPosts'
 
-
-
 interface Iprop {
     getAllPostsApiCall?:Function,
     updatePostsAfterUpload?:Function,
     element?: Object
+
 
 }
 
@@ -27,12 +26,8 @@ export interface IData{
  }
 const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
 
-
     const [posts, setPosts] = useState<IData[]| undefined>([])
     const [loading, setLoading] = useState<Boolean>(true)
-    const [imageSource, setImageSource ] = useState()
-   
-
 
    const getAllPostsApiCall = ():void | string=>{
             fetch(`${url}/getAllPosts`,{
@@ -41,20 +36,26 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
             })
             .then(res=>{return res.json()})
             .then(data=>{
-                setLoading(false)
                 setPosts(data)
             })
-    //
+            setLoading(false)
+   
+    }
+
+    const isItLoading = (boolean: boolean):void =>{
+        setLoading(boolean)
     }
    
 
     const updatePostsAfterUpload = ():void =>{
         getAllPostsApiCall()
+
     }//
     
 
    useEffect(()=>{
        getAllPostsApiCall()
+      
     },[])
 
     let mapPosts:(JSX.Element | undefined)[] | JSX.Element
@@ -110,7 +111,8 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
         <div id="EverythingContainer">
             <span id="leaveAMessageText">Leave a message!</span>
             <div id="iconsContainer">
-                <Options updatePostsAfterUpload={updatePostsAfterUpload}/>
+                <Options updatePostsAfterUpload={updatePostsAfterUpload}
+                        isItLoading={isItLoading}/>
             </div>
             <div id="commentsContainer">
                 {mapPosts!}
