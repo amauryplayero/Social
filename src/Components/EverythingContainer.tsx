@@ -1,7 +1,7 @@
 import axios from 'axios'
 import React, { ReactNode, useEffect } from 'react'
 import {useState, useRef} from 'react'
-import { setConstantValue } from 'typescript'
+import { idText, setConstantValue } from 'typescript'
 import Drawing from './Drawing'
 import Options from './Options'
 import MapThroughPosts from './MapThroughPosts'
@@ -35,7 +35,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
 
 
    const getAllPostsApiCall = ():void | string=>{
-            fetch(`${devUrl}/getAllPosts`,{
+            fetch(`${url}/getAllPosts`,{
             method: 'GET',
             headers: {'Content-Type': 'application/json'}
             })
@@ -70,28 +70,24 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
     }else {
         mapPosts = posts!.map((e, i) => {
             if (e.type === "image") {
-                let body = {
-                    uuid:e.image_uuid
-                }
-                // console.log(e)
-
+                // console.log(e.description)
                 return(
                 // <MapThroughPosts element={e}/>
                 <>
                 <>
                            <div className="postContainer">
-                              <div id="nameSaysContainer">
-                              
-                            {/* <img width="300px"src={e.image_s3_url}></img> */}
-                            <img width="300px"src={`${e.image_s3_url}`}></img>
-                            </div>
-                             <p className="message">{'hai testing'}</p>
-        
+                                <div id="imagePostContainer">
+                                    <div id="nameContainerInImagePost">
+                                        <p className="name">{e.name +" posted"}</p>
+                                    </div>
+                                        <p className="message">{e.text_content}</p>
+                                        <img id="image" src={`${e.image_s3_url}`}></img>
+                                </div>
                             </div>
                      </>
                 </>
                 )
-            } else {
+            } else if(e.type === "text"){
                 return (
                     <>
                         <div className="postContainer">
@@ -104,6 +100,8 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
                         </div>
                     </>
                 )
+            } else {
+
             }
     
         })

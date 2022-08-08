@@ -2,12 +2,11 @@ import {useState} from 'react'
 import Drawing from './Drawing'
 import Text from './Text'
 import Image from './Image'
-import { State } from 'aws-sdk/clients/directconnect'
 import Gif from './Gif'
 
 
 interface Iprop {
-    updatePostsAfterUpload?:Function,
+    updatePostsAfterUpload?:Function
 }
 
 
@@ -69,10 +68,12 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
         case "Image":
             currentActionDisplayed = 
             <>
+            
             <Image updatePostsAfterUpload={props.updatePostsAfterUpload}/>
             {cancelButton}
             </>
             break;
+            
         case "Gif":
             currentActionDisplayed = 
             <>

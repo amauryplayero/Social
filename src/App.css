@@ -235,3 +235,17 @@ justify-content: space-evenly;
   color:grey;
   margin-top: 2px;
 }
+
+#imagePostContainer{
+  display: flex;
+  flex-direction: column;
+}
+
+#nameContainerInImagePost{
+  display: flex;
+  justify-content: baseline;
+}
+
+#image{
+  border-radius: 10px;
+}
