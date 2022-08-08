@@ -276,7 +276,7 @@ justify-content: space-evenly;
 #chooseFileAndPostButtonContainer{
   display: flex;
   margin-left: 2%;
-  margin-right: 2%;
+  margin-right: 5%;
   /* border: solid red; */
 }
 
