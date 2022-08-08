@@ -37,8 +37,9 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
             .then(res=>{return res.json()})
             .then(data=>{
                 setPosts(data)
+            }).then(()=>{
+                setLoading(false)
             })
-            setLoading(false)
    
     }
 
