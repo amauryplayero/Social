@@ -41,10 +41,8 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
             })
             .then(res=>{return res.json()})
             .then(data=>{
-                // console.log('hai')
-                console.log(data)
-                setPosts(data)
                 setLoading(false)
+                setPosts(data)
             })
     //
     }
@@ -58,8 +56,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
    useEffect(()=>{
        getAllPostsApiCall()
     },[])
-    //  console.log(posts)
-    
+
     let mapPosts:(JSX.Element | undefined)[] | JSX.Element
     if(loading===true){
         mapPosts = <>
@@ -70,7 +67,6 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
     }else {
         mapPosts = posts!.map((e, i) => {
             if (e.type === "image") {
-                // console.log(e.description)
                 return(
                 // <MapThroughPosts element={e}/>
                 <>
@@ -78,9 +74,11 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
                            <div className="postContainer">
                                 <div id="imagePostContainer">
                                     <div id="nameContainerInImagePost">
-                                        <p className="name">{e.name +" posted"}</p>
+                                        <p className="name">{e.name}</p>
+                                        <p className="says">posted</p>
+
                                     </div>
-                                        <p className="message">{e.text_content}</p>
+                                        <p className="messageInImage">{e.text_content}</p>
                                         <img id="image" src={`${e.image_s3_url}`}></img>
                                 </div>
                             </div>
@@ -105,7 +103,6 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
             }
     
         })
-        // mapPosts = mapThroughPosts(posts)
     }
 
     return(

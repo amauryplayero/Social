@@ -69,8 +69,9 @@ const Options: React.FC<Iprop> = (props:Iprop): JSX.Element => {
             currentActionDisplayed = 
             <>
             
-            <Image updatePostsAfterUpload={props.updatePostsAfterUpload}/>
-            {cancelButton}
+            <Image updatePostsAfterUpload={props.updatePostsAfterUpload}
+                    cancelButtonHandler={cancelButtonHandler}/>
+
             </>
             break;
             

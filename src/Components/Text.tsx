@@ -30,6 +30,7 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
     }
 
     const handleSubmit = (e:React.FormEvent):void =>{
+        setPostState("posted")
         e.preventDefault()
        
         
@@ -40,7 +41,6 @@ const Text: React.FC<Iprop> = (props: Iprop): JSX.Element => {
                         body:JSON.stringify({text:inputText,name:name})
                         }
                     ).then(res=>{ 
-                        setPostState("posted")
                         props.updatePostsAfterUpload?.()
                     }
                 )

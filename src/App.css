@@ -248,4 +248,46 @@ justify-content: space-evenly;
 
 #image{
   border-radius: 10px;
+  max-width: 300px;
+}
+
+#nameAndDescriptionContainer{
+  display: flex;
+  flex-direction: column;
+  /* border: red solid; */
+}
+
+#descriptionInput{
+ border:2px rgb(233, 233, 233) solid;
+ height: 46px;
+ 
+ border-radius: 12px;
+ margin-bottom: 10px;
+ width: 200px;
+ padding-left:5px;
+
+}
+
+#chooseFileAndPostButtonContainer{
+  display: flex;
+  /* border: solid red; */
+}
+
+#cancelButtonInImageContainer{
+  display: flex;
+  justify-content: right;
+}
+
+#cancelButtonInImage{
+  border-radius: 100%;
+  border: none;
+  background-color: rgb(255, 0, 0);
+  color: white;
+  padding: 4px 8px;
+  position:fixed;
+}
+.messageInImage{
+  font-size: 23px;
+  margin: 0 0 0 0;
+  font-weight: bold;
 }
