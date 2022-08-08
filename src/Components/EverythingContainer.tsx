@@ -81,7 +81,7 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
 
                                     </div>
                                         <p className="messageInImage">{e.text_content}</p>
-                                        <img id="image" src={`${e.image_s3_url}`}></img>
+                                        <img id="individualImage" src={`${e.image_s3_url}`}></img>
                                 </div>
                             </div>
                      </>
