@@ -254,6 +254,9 @@ justify-content: space-evenly;
 #nameAndDescriptionContainer{
   display: flex;
   flex-direction: column;
+  max-width:inherit;
+  margin-left: 2%;
+  margin-right: 2%;
   /* border: red solid; */
 }
 
@@ -270,12 +273,15 @@ justify-content: space-evenly;
 
 #chooseFileAndPostButtonContainer{
   display: flex;
+  margin-left: 2%;
+  margin-right: 2%;
   /* border: solid red; */
 }
 
 #cancelButtonInImageContainer{
   display: flex;
   justify-content: right;
+  margin-right: 2%;
 }
 
 #cancelButtonInImage{
