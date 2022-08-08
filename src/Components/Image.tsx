@@ -55,7 +55,7 @@ const Image: React.FC<Iprop> = (props:Iprop) => {
             }
         ).then(res=>{
             console.log('then fired inside the post')
-            // props.updatePostsAfterUpload?.()
+            props.updatePostsAfterUpload?.()
 
         })
     }
