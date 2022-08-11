@@ -15,10 +15,7 @@ body{
   display: flex;
   justify-content: center;
   position:relative;
-  
-  /* top:60px; */
-  /* width: 120px;
-  height: 120px; */
+
 }
 
 #profilePictureContainerDiv{
@@ -367,4 +364,14 @@ justify-content: space-evenly;
 #formContainerForImage{
   width:100%;
   /* border: red solid; */
+}
+
+.longWaitContainer{
+  /* border:red solid; */
+  position: absolute;
+}
+
+#gifElementContainer{
+  display: flex;
+  justify-content: center;
 }
