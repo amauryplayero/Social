@@ -45,7 +45,7 @@ describe('Text component capabilities',()=>{
     await driver.findElement(By.id('Text')).click()
     await driver.findElement(By.id('inputText')).sendKeys(writtenText)
   })
-  test("input is submitted successfully",async ()=>{
+  it("submits input successfully",async ()=>{
     const writtenText = "testing text hehehe hai"
     const name = "Test Robot Jones"
     await driver.get(link)
