@@ -8,3 +8,4 @@ A facebook wall without distractions.
 - Or as an image.
 - Scroll through many messages that strangers have left.
 
+-
