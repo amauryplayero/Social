@@ -30,10 +30,6 @@ const MapThroughPosts = (props:IProps):JSX.Element=>{
                 const arrayBufferView = new Uint8Array(res.data.Body.data)
                 console.log(res.data.Body.data)
                 return 'hai'
-                // const blob = new Blob([arrayBufferView],{ type: "image/jpeg" } )
-                // const imgSource = URL.createObjectURL( blob );
-                // console.log(blob)
-                // return imgSource
             })
 
     srcUrl.then()

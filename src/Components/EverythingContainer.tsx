@@ -138,8 +138,8 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
                         <>
                             <div className="postContainer">
                                 <div id="nameSaysContainer">
-                                    <p className="name">{e.name}</p>
-                                    <p className="says">said</p>
+                                    <h2 className="name">{e.name}</h2>
+                                    <span className="says">said</span>
                                 </div>
                                 <p className="message">{e.text_content}</p>
         
@@ -157,14 +157,21 @@ const EverythingContainer: React.FC<Iprop> = ():JSX.Element =>{
     return(
         <>
         <div id="EverythingContainer">
-            <span id="leaveAMessageText">Leave a message!</span>
+
+        <header>
+            <h1 id="leaveAMessageText">Leave a message!</h1>
+        </header>
+
             <div id="iconsContainer">
                 <Options updatePostsAfterUpload={updatePostsAfterUpload}
                         isItLoading={isItLoading}/>
             </div>
-            <div id="commentsContainer">
-                {mapPosts!}
-            </div>
+
+        
+        <section id="commentsContainer">
+            {mapPosts!}
+        </section>
+      
 
         </div>
         </>

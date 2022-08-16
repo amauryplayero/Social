@@ -5,6 +5,10 @@ body{
    background-size: cover;
 }
 
+header{
+  margin: 0 0 0 0;
+}
+
 #backgroundImagesInAppContainer{
  /* background-attachment: fixed; */
  /*  */
@@ -338,7 +342,8 @@ justify-content: space-evenly;
   font-weight: bold;
   font-size: 23px;
   color: rgb(85, 85, 85);
-  margin-bottom: 8px;
+  /* margin-bottom: 8px; */
+  margin: 0 0 8px 0 ;
 }
 
 #cancelButtonInImageContainer{
@@ -375,4 +380,8 @@ justify-content: space-evenly;
 #gifElementContainer{
   display: flex;
   justify-content: center;
+}
+
+#commentsSection{
+  display: none;
 }
