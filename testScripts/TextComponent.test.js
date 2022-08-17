@@ -74,7 +74,7 @@ describe('Text component capabilities',()=>{
 
 });
 
-v
+
 
 
 
