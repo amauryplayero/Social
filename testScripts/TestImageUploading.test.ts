@@ -23,21 +23,28 @@ describe('Image component capabilities',()=>{
   it('uploads the picture succesfully', async()=>{
       const name:string = "test"
       const message:string = "test"
+    //   const fakeFile = new File(['hello'], 'hello.png', { type: 'image/png' })
 
       await driver.get(link)
       await driver.findElement(By.id('Image')).click()
       await driver.findElement(By.id('nameInput')).sendKeys(name)
       await driver.findElement(By.id('descriptionInput')).sendKeys(message)
-      await driver.findElement(By.id('chooseFileButton')).click()
-      await driver.sleep(5000)
+    //   await driver.findElement(By.id('chooseFileButton')).click()
+    //   await driver.sleep(5000)
+      let chooseFile = await driver.findElement(By.xpath('//input[@id="chooseFileButton"]'))
+      await chooseFile.sendKeys('/Users/amaurylopez/Downloads/carbon (1).png')
+      await driver.findElement(By.id('uploadImageButton')).click()
+      await driver.findElement(By.className('postContainer'))
+      
+
+
+
       
   })
 
 //   it('uploads successfully', async()=>{
 //     await driver.get(link)
 //     await driver.findElement(By.id('Image')).click()
-//     let chooseFile = await driver.findElement(By.xpath('//input[@id="chooseFileButton"]'))
-//     await chooseFile.sendKeys('/Users/amaurylopez/Downloads/carbon (1).png')
 //     await driver.findElement(By.id('uploadImageButton')).click()
 //     await driver.sleep(5000)
 //     // expect(driver.findElement(By.id('chooseFileButton'))).toBeVisible()
