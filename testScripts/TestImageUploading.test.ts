@@ -1,6 +1,7 @@
 
 import {Builder, Capabilities, By} from 'selenium-webdriver'
 import script from 'jest'
+import * as fs from 'fs'
 
 const link = 'http://localhost:3000/'
 let driver = new Builder()
@@ -29,14 +30,18 @@ describe('Image component capabilities',()=>{
       await driver.findElement(By.id('Image')).click()
       await driver.findElement(By.id('nameInput')).sendKeys(name)
       await driver.findElement(By.id('descriptionInput')).sendKeys(message)
-    //   await driver.findElement(By.id('chooseFileButton')).click()
-    //   await driver.sleep(5000)
-      let chooseFile = await driver.findElement(By.xpath('//input[@id="chooseFileButton"]'))
-      await chooseFile.sendKeys('/Users/amaurylopez/Downloads/carbon (1).png')
-      await driver.findElement(By.id('uploadImageButton')).click()
-      await driver.findElement(By.className('postContainer'))
-      
+    //   let chooseFile = await driver.findElement(By.xpath('//input[@id="chooseFileButton"]'))
+    //   await chooseFile.sendKeys('/Users/amaurylopez/Downloads/carbon (1).png')
+    //   await driver.findElement(By.id('uploadImageButton')).click()
 
+      
+      
+      let singleComment = await driver.findElement(By.xpath('(//div[@class="postContainer"])[0]'))
+      console.log(singleComment)
+    //   expect(fs.readFile)
+
+
+//
 
 
       
