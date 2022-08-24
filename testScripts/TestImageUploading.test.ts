@@ -38,6 +38,7 @@ describe('Image component capabilities',()=>{
       
       let singleComment = await driver.findElement(By.xpath('(//div[@class="postContainer"])[0]'))
       console.log(singleComment)
+      //
     //   expect(fs.readFile)
 
 
